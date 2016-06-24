@@ -133,6 +133,8 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="_CustomLayout.cshtml" />
+    <Content Include="_PageStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\ai.0.15.0-build58334.js" />
