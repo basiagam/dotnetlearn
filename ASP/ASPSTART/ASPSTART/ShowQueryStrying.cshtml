@@ -1,6 +1,4 @@
-﻿@{
-    Layout = null;
-}
+﻿
 
 <!DOCTYPE html>
 
@@ -11,7 +9,17 @@
 </head>
 <body>
     <div>
-        Postać łańcucha zapytania: '@Request.QueryString'
+        Postać łańcucha zapytania: 
+        @{ 
+            System.Collections.Specialized.NameValueCollection qs =
+                Request.Unvalidated.QueryString;
+        }
+        @foreach (string paramKey in qs)
+        {
+            <div>
+                Klucz: @paramKey, wartość: @qs[paramKey]
+            </div>
+        }
     </div>
     <div>
         Rodzja przeglądarki: '@Request.UserAgent'
