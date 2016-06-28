@@ -1,0 +1,17 @@
+﻿@model MVCReflectionModel.Models.AssemblyModel
+
+@{
+    ViewBag.Title = "Podzespół - " + Model.SimpleName;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>@Model.Version</div>
+<div>Token klucza publicznego: @Model.PublicKeyToken</div>
+
+<h3>Typy</h3>
+@foreach(string typeName in Model.Types)
+{
+    <div>@typeName</div>
+}
+
