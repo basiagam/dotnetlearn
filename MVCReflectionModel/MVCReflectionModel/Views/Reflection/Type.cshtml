@@ -1,0 +1,18 @@
+﻿@* Listing 20-26 *@
+@model MvcReflectionView.Models.TypeModel
+
+@{
+    ViewBag.Title = "Typ - " + Model.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>Przestrzeń nazw: @Model.Namespace</div>
+<div>@Html.ActionLink(Model.ContainingAssembly, "Assembly", new { id = Model.ContainingAssembly })</div>
+
+<h3>Metody</h3>
+
+@foreach(string methodName in @Model.Methods)
+{
+    <div>@methodName</div>
+}

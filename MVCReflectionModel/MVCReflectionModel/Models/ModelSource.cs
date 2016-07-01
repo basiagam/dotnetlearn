@@ -26,5 +26,25 @@ namespace MVCReflectionModel.Models
             }
             return new AssemblyModel(asm);
         }
+
+        public static TypeModel GetTypeModel(string assemblyName, string typeName)
+        {
+            Assembly asm;
+            if (!AvailableAssemblies.TryGetValue(assemblyName, out asm))
+            {
+                return null;
+            }
+            Type t = asm.GetType(typeName);
+            if (t == null)
+            {
+                return null;
+            }
+            return new TypeModel(t);
+        }
+
+        public static ReflectionModel GetReflectionModel()
+        {
+            return new ReflectionModel(AvailableAssemblies.Keys);
+        }
     }
 }

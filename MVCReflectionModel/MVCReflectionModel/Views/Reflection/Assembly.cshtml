@@ -1,4 +1,5 @@
-﻿@model MVCReflectionModel.Models.AssemblyModel
+﻿@* Listing 20-32 *@
+@model MVCReflectionModel.Models.AssemblyModel
 
 @{
     ViewBag.Title = "Podzespół - " + Model.SimpleName;
@@ -6,12 +7,39 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div>@Model.Version</div>
+<div>Wersja: @Model.Version</div>
 <div>Token klucza publicznego: @Model.PublicKeyToken</div>
 
 <h3>Typy</h3>
-@foreach(string typeName in Model.Types)
-{
-    <div>@typeName</div>
+
+@{
+// W komentarzu bo ten kod jest zastępowany przez listing 20-39.
+//@foreach(string typeName in Model.Types)
+//{
+//    <div>@typeName</div>
+//    
+//    @* Listing 20-33 *@
+//<div class="display-label">
+//    @Html.DisplayNameFor(model => model.SimpleName)
+//</div>
+//<div class="display-field">
+//    @Html.DisplayFor(model => model.SimpleName)
+//</div>
+//
+//}
 }
 
+
+<div>
+
+    @* Listing 20-39 *@
+@foreach(string typeName in Model.Types)
+{
+<div>
+    @* @Html.ActionLink(typeName, "Type", new { id = Model.SimpleName, typeName }) *@
+    @* Kod zmodyfikowany ze względu na listing 20-24 *@
+    @Html.ActionLink(typeName, "Type",
+       new { assemblyName = Model.SimpleName, typeName })
+</div>
+}
+</div>
