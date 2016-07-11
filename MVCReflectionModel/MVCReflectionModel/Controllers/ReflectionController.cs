@@ -9,7 +9,6 @@ namespace MVCReflectionModel.Controllers
 {
     public class ReflectionController : Controller
     {
-        // GET: Reflection
         public ActionResult Assembly(string id)
         {
             AssemblyModel model = ModelSource.FromName(id);

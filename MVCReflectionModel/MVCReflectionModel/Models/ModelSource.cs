@@ -8,19 +8,18 @@ namespace MVCReflectionModel.Models
 {
     public class ModelSource
     {
-        public static Dictionary<string,Assembly> AvailableAssemblies { get; private set; }
-
+        public static Dictionary<string, Assembly> AvailableAssemblies
+        { get; private set; }
         static ModelSource()
         {
             AvailableAssemblies = AppDomain.CurrentDomain.GetAssemblies()
-                .GroupBy(a => a.GetName().Name)
-                .ToDictionary(g => g.Key, g => g.First());
+            .GroupBy(a => a.GetName().Name)
+            .ToDictionary(g => g.Key, g => g.First());
         }
-
         public static AssemblyModel FromName(string name)
         {
             Assembly asm;
-            if(!AvailableAssemblies.TryGetValue(name,out asm))
+            if (!AvailableAssemblies.TryGetValue(name, out asm))
             {
                 return null;
             }
