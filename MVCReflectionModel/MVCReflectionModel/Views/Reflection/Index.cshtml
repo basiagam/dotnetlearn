@@ -1,0 +1,13 @@
+﻿@model MVCReflectionModel.Models.ReflectionModel
+
+@{
+    ViewBag.Title = "Strona główna";
+}
+<h2>Podzespoły</h2>
+@foreach (string assemblyName in Model.Assemblies)
+{
+    <div>
+        @Html.ActionLink(assemblyName, "Assembly", new { assemblyName })
+    </div>
+}
+

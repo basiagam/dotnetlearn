@@ -18,6 +18,19 @@ namespace MVCReflectionModel
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Assembly",
+                url: "Reflection/{assemblyName}/",
+                defaults: new { controller = "Reflection", action = "Assembly"}
+                );
+
+            routes.MapRoute(
+                name: "Type",
+                url: "Reflection/{assemblyName}/{typeName}/",
+                defaults: new { controller = "Reflection", action = "Type" }
+                );
+            RouteTable.Routes.AppendTrailingSlash = true;
         }
     }
 }
