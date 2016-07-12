@@ -14,10 +14,10 @@ namespace Introduction.Controllers
             return View();
         }
 
-        public ActionResult Welcome(string name, int numTies = 1)
+        public ActionResult Welcome(string name, int numTimes)
         {
             ViewBag.Message = "Hello " + name;
-            ViewBag.NumTies = numTies;
+            ViewBag.NumTimes = numTimes;
 
             return View();
         }

@@ -2,4 +2,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{ 
+    ViewBag.Title = "Welcoming guest";
+}
+<h2>Welcome</h2>
 
+<ul>
+    @for (int i = 0; i < ViewBag.NumTimes; i++)
+    {
+        <li>@ViewBag.Message</li>
+    }
+</ul>
