@@ -15,9 +15,32 @@ namespace Introduction.Controllers
         private MovieDbContext db = new MovieDbContext();
 
         // GET: Movies
-        public ActionResult Index()
+        public ActionResult Index(string movieGenre,string searchString)
         {
-            return View(db.Movies.ToList());
+            var GenreList = new List<string>();
+
+            var GenreQry = from d in db.Movies
+                           orderby d.Genre
+                           select d.Genre;
+
+            GenreList.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreList);
+        
+
+            var movies = from m in db.Movies
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+
+            return View(movies);
         }
 
         // GET: Movies/Details/5
@@ -46,7 +69,7 @@ namespace Introduction.Controllers
         // Aby uzyskać więcej szczegółów, zobacz http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public ActionResult Create([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +101,7 @@ namespace Introduction.Controllers
         // Aby uzyskać więcej szczegółów, zobacz http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public ActionResult Edit([Bind(Include = "ID,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
             if (ModelState.IsValid)
             {
