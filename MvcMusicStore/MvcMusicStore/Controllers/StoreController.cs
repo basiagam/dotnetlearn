@@ -9,9 +9,9 @@ namespace MvcMusicStore.Controllers
     public class StoreController : Controller
     {
         // GET: Store
-        public string Index()
+        public ActionResult Index()
         {
-            return "Hello from Store.Index()";
+            return View();
         }
         // GET: Store/Browse
         public string Browse(string genre)
