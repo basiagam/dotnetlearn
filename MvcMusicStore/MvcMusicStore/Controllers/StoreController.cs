@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MvcMusicStore.Controllers
 {
-    public class SklepController : Controller
+    public class StoreController : Controller
     {
         MusicStoreEntities StoreDb = new MusicStoreEntities();
 
