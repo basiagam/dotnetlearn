@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 namespace MvcMusicStore.Models
 {
@@ -10,6 +12,28 @@ namespace MvcMusicStore.Models
     {
         protected override void Seed(MusicStoreEntities context)
         {
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            var rolaAdmin = new IdentityRole { Name = "Admin" };
+            roleManager.Create(rolaAdmin);
+
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+            string haslo = "haslo123";
+            string email = "konktakt@aspnetmvc.pl";
+            ApplicationUser uzytkownik = new ApplicationUser()
+            {
+                UserName = email,
+                Email = email,
+                EmailConfirmed = true,
+            };
+            if (userManager.Create(uzytkownik, haslo).Succeeded)
+            {
+                userManager.AddToRole(uzytkownik.Id, "Admin");
+            }
+            context.SaveChanges();
+
             var genres = new List<Genre>
             {
                 new Genre { Name = "Rock" },
@@ -427,5 +451,6 @@ namespace MvcMusicStore.Models
                 new Album { Title = "Ao Vivo [IMPORT]", Genre = genres.Single(g => g.Name == "Latin"), Price = 8.99M, Artist = artists.Single(a => a.Name == "Zeca Pagodinho"), AlbumArtUrl = "/Content/Images/placeholder.gif" },
             }.ForEach(a => context.Albums.Add(a));
         }
+
     }
 }
