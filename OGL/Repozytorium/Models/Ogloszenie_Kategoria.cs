@@ -1,4 +1,4 @@
-﻿namespace OGL.Models
+﻿namespace Repozytorium.Models
 {
     public class Ogloszenie_Kategoria
     {

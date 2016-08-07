@@ -1,4 +1,4 @@
-﻿using OGL.Models;
+﻿using Repozytorium.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 

@@ -183,13 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\View\AccountViewModels.cs" />
-    <Compile Include="Models\Oglcontext.cs" />
-    <Compile Include="Models\Kategoria.cs" />
     <Compile Include="Models\View\ManageViewModels.cs" />
-    <Compile Include="Models\Ogloszenie.cs" />
-    <Compile Include="Models\Ogloszenie_Kategoria.cs" />
-    <Compile Include="Models\Uzytkownik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -259,6 +253,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Repozytorium\Repozytorium.csproj">
+      <Project>{0b767b3a-8464-4cc5-b2b9-d24808f6ca8e}</Project>
+      <Name>Repozytorium</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

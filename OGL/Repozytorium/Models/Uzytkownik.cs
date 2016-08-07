@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace OGL.Models
+namespace Repozytorium.Models
 {
     // Dane profilu dla użytkownika można dodać, dodając więcej właściwości do własnej klasy Uzytkownik. Więcej informacji można znaleźć na stronie http://go.microsoft.com/fwlink/?LinkID=317594.
     public class Uzytkownik : IdentityUser
@@ -24,7 +24,7 @@ namespace OGL.Models
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         #region dodatkowe pole notmapped
-        [NotMapped] // using System.ComponentModel.DataAnnotations.Schema;
+        [NotMapped] // Repozytorium.Models System.ComponentModel.DataAnnotations.Schema;
         [Display(Name = "Pan/Pani:")]
         public string PelneNazwisko
         {

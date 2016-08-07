@@ -3,7 +3,7 @@
  * Microsoft grants you the right to use these script files for the sole
  * purpose of either: (i) interacting through your browser with the Microsoft
  * website or online service, subject to the applicable licensing or use
- * terms; or (ii) using the files as included with a Microsoft product subject
+ * terms; or (ii) Repozytorium.Models the files as included with a Microsoft product subject
  * to that product's license terms. Microsoft reserves all other rights to the
  * files not expressly granted by Microsoft, whether by implication, estoppel
  * or otherwise. Insofar as a script file is dual licensed under GPL,
@@ -47,11 +47,11 @@ intellisense.annotate(jQuery, {
     /// </signature>
   },
   'boxModel': function() {
-    /// <summary>Deprecated in jQuery 1.3 (see jQuery.support). States if the current page, in the user's browser, is being rendered using the W3C CSS Box Model.</summary>
+    /// <summary>Deprecated in jQuery 1.3 (see jQuery.support). States if the current page, in the user's browser, is being rendered Repozytorium.Models the W3C CSS Box Model.</summary>
     /// <returns type="Boolean" />
   },
   'browser': function() {
-    /// <summary>Contains flags for the useragent, read from navigator.userAgent. We recommend against using this property; please try to use feature detection instead (see jQuery.support). jQuery.browser may be moved to a plugin in a future release of jQuery.</summary>
+    /// <summary>Contains flags for the useragent, read from navigator.userAgent. We recommend against Repozytorium.Models this property; please try to use feature detection instead (see jQuery.support). jQuery.browser may be moved to a plugin in a future release of jQuery.</summary>
     /// <returns type="PlainObject" />
   },
   'browser.version': function() {
@@ -137,7 +137,7 @@ intellisense.annotate(jQuery, {
   },
   'get': function() {
     /// <signature>
-    ///   <summary>Load data from the server using a HTTP GET request.</summary>
+    ///   <summary>Load data from the server Repozytorium.Models a HTTP GET request.</summary>
     ///   <param name="url" type="String">A string containing the URL to which the request is sent.</param>
     ///   <param name="data" type="String">A plain object or string that is sent to the server with the request.</param>
     ///   <param name="success(data, textStatus, jqXHR)" type="Function">A callback function that is executed if the request succeeds.</param>
@@ -147,7 +147,7 @@ intellisense.annotate(jQuery, {
   },
   'getJSON': function() {
     /// <signature>
-    ///   <summary>Load JSON-encoded data from the server using a GET HTTP request.</summary>
+    ///   <summary>Load JSON-encoded data from the server Repozytorium.Models a GET HTTP request.</summary>
     ///   <param name="url" type="String">A string containing the URL to which the request is sent.</param>
     ///   <param name="data" type="PlainObject">A plain object or string that is sent to the server with the request.</param>
     ///   <param name="success(data, textStatus, jqXHR)" type="Function">A callback function that is executed if the request succeeds.</param>
@@ -156,7 +156,7 @@ intellisense.annotate(jQuery, {
   },
   'getScript': function() {
     /// <signature>
-    ///   <summary>Load a JavaScript file from the server using a GET HTTP request, then execute it.</summary>
+    ///   <summary>Load a JavaScript file from the server Repozytorium.Models a GET HTTP request, then execute it.</summary>
     ///   <param name="url" type="String">A string containing the URL to which the request is sent.</param>
     ///   <param name="success(script, textStatus, jqXHR)" type="Function">A callback function that is executed if the request succeeds.</param>
     ///   <returns type="jqXHR" />
@@ -229,7 +229,7 @@ intellisense.annotate(jQuery, {
   },
   'isPlainObject': function() {
     /// <signature>
-    ///   <summary>Check to see if an object is a plain object (created using "{}" or "new Object").</summary>
+    ///   <summary>Check to see if an object is a plain object (created Repozytorium.Models "{}" or "new Object").</summary>
     ///   <param name="object" type="PlainObject">The object that will be checked to see if it's a plain object.</param>
     ///   <returns type="Boolean" />
     /// </signature>
@@ -329,7 +329,7 @@ intellisense.annotate(jQuery, {
   },
   'post': function() {
     /// <signature>
-    ///   <summary>Load data from the server using a HTTP POST request.</summary>
+    ///   <summary>Load data from the server Repozytorium.Models a HTTP POST request.</summary>
     ///   <param name="url" type="String">A string containing the URL to which the request is sent.</param>
     ///   <param name="data" type="String">A plain object or string that is sent to the server with the request.</param>
     ///   <param name="success(data, textStatus, jqXHR)" type="Function">A callback function that is executed if the request succeeds.</param>
@@ -1204,13 +1204,13 @@ intellisense.annotate(jQuery.fn, {
   },
   'die': function() {
     /// <signature>
-    ///   <summary>Remove event handlers previously attached using .live() from the elements.</summary>
+    ///   <summary>Remove event handlers previously attached Repozytorium.Models .live() from the elements.</summary>
     ///   <param name="eventType" type="String">A string containing a JavaScript event type, such as click or keydown.</param>
     ///   <param name="handler" type="String">The function that is no longer to be executed.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Remove event handlers previously attached using .live() from the elements.</summary>
+    ///   <summary>Remove event handlers previously attached Repozytorium.Models .live() from the elements.</summary>
     ///   <param name="events" type="PlainObject">A plain object of one or more event types, such as click or keydown and their corresponding functions that are no longer to be executed.</param>
     ///   <returns type="jQuery" />
     /// </signature>
@@ -2526,7 +2526,7 @@ intellisense.annotate(jQuery.fn, {
     /// <signature>
     ///   <summary>Remove a previously-attached event handler from the elements.</summary>
     ///   <param name="eventType" type="String">A string containing a JavaScript event type, such as click or submit.</param>
-    ///   <param name="false" type="Boolean">Unbinds the corresponding 'return false' function that was bound using .bind( eventType, false ).</param>
+    ///   <param name="false" type="Boolean">Unbinds the corresponding 'return false' function that was bound Repozytorium.Models .bind( eventType, false ).</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>

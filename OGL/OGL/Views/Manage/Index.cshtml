@@ -1,4 +1,4 @@
-﻿@model OGL.Models.IndexViewModel
+﻿@model Repozytorium.Models.IndexViewModel
 @{
     ViewBag.Title = "Zarządzaj";
 }
@@ -59,26 +59,26 @@
                 Brak skonfigurowanych dostawców uwierzytelniania dwuetapowego. Zobacz <a href="http://go.microsoft.com/fwlink/?LinkId=403804">ten artykuł</a>,
                             aby uzyskać szczegółowe informacje dotyczące konfigurowania tej aplikacji ASP.NET w celu obsługi uwierzytelniania dwuetapowego.
             </p>
-            @*@if (Model.TwoFactor)
-                {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Włączono
-                        <input type="submit" value="Wyłącz" class="btn btn-link" />
-                        </text>
-                    }
-                }
-                else
-                {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Wyłączono
-                        <input type="submit" value="Włącz" class="btn btn-link" />
-                        </text>
-                    }
-                }*@
+        @*@if (Model.TwoFactor)
+        {
+            using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <text>Włączono
+                <input type="submit" value="Wyłącz" class="btn btn-link" />
+                </text>
+            }
+        }
+        else
+        {
+            using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <text>Wyłączono
+                <input type="submit" value="Włącz" class="btn btn-link" />
+                </text>
+            }
+        }*@
         </dd>
     </dl>
 </div>

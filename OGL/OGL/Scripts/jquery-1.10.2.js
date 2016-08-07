@@ -3,7 +3,7 @@
  * Microsoft grants you the right to use these script files for the sole
  * purpose of either: (i) interacting through your browser with the Microsoft
  * website or online service, subject to the applicable licensing or use
- * terms; or (ii) using the files as included with a Microsoft product subject
+ * terms; or (ii) Repozytorium.Models the files as included with a Microsoft product subject
  * to that product's license terms. Microsoft reserves all other rights to the
  * files not expressly granted by Microsoft, whether by implication, estoppel
  * or otherwise. Insofar as a script file is dual licensed under GPL,
@@ -559,7 +559,7 @@ jQuery.extend({
 	},
 
 	parseJSON: function( data ) {
-		// Attempt to parse using the native JSON parser first
+		// Attempt to parse Repozytorium.Models the native JSON parser first
 		if ( window.JSON && window.JSON.parse ) {
 			return window.JSON.parse( data );
 		}
@@ -1333,7 +1333,7 @@ function markFunction( fn ) {
 }
 
 /**
- * Support testing using an element
+ * Support testing Repozytorium.Models an element
  * @param {Function} fn Passed the created div and expects a boolean result
  */
 function assert( fn ) {
@@ -3005,7 +3005,7 @@ function createOptions( options ) {
 }
 
 /*
- * Create a callback list using the following parameters:
+ * Create a callback list Repozytorium.Models the following parameters:
  *
  *	options: an optional list of space-separated options that will change how
  *			the callback list behaves or a more traditional option object
@@ -3060,7 +3060,7 @@ jQuery.Callbacks = function( options ) {
 			firing = true;
 			for ( ; list && firingIndex < firingLength; firingIndex++ ) {
 				if ( list[ firingIndex ].apply( data[ 0 ], data[ 1 ] ) === false && options.stopOnFalse ) {
-					memory = false; // To prevent further calls using add
+					memory = false; // To prevent further calls Repozytorium.Models add
 					break;
 				}
 			}
@@ -3497,7 +3497,7 @@ jQuery.support = (function( support ) {
 		// Check if table cells still have offsetWidth/Height when they are set
 		// to display:none and there are still other visible table cells in a
 		// table row; if so, offsetWidth/Height are not reliable for use when
-		// determining if an element has been hidden directly using
+		// determining if an element has been hidden directly Repozytorium.Models
 		// display:none (it is still safe to use offsets if a parent element is
 		// hidden; don safety goggles and see bug #4512 for more information).
 		div.innerHTML = "<table><tr><td></td><td>t</td></tr></table>";
@@ -3617,7 +3617,7 @@ function internalData( elem, name, data, pvt /* Internal Use Only */ ){
 
 	if ( !cache[ id ] ) {
 		// Avoid exposing jQuery metadata on plain JS objects when the object
-		// is serialized using JSON.stringify
+		// is serialized Repozytorium.Models JSON.stringify
 		cache[ id ] = isNode ? {} : { toJSON: jQuery.noop };
 	}
 
@@ -4584,7 +4584,7 @@ if ( !getSetAttribute ) {
 
 			ret.value = value += "";
 
-			// Break association with cloned elements by also using setAttribute (#9646)
+			// Break association with cloned elements by also Repozytorium.Models setAttribute (#9646)
 			return name === "value" || value === elem.getAttribute( name ) ?
 				value :
 				undefined;
@@ -5452,7 +5452,7 @@ jQuery.Event.prototype = {
 	}
 };
 
-// Create mouseenter/leave events using mouseover/out and event-time checks
+// Create mouseenter/leave events Repozytorium.Models mouseover/out and event-time checks
 jQuery.each({
 	mouseenter: "mouseover",
 	mouseleave: "mouseout"
@@ -5658,7 +5658,7 @@ jQuery.fn.extend({
 				jQuery().off( event );
 				return origFn.apply( this, arguments );
 			};
-			// Use same guid so caller can remove using origFn
+			// Use same guid so caller can remove Repozytorium.Models origFn
 			fn.guid = origFn.guid || ( origFn.guid = jQuery.guid++ );
 		}
 		return this.each( function() {
@@ -6180,7 +6180,7 @@ jQuery.fn.extend({
 
 					elem = 0;
 
-				// If using innerHTML throws an exception, use the fallback method
+				// If Repozytorium.Models innerHTML throws an exception, use the fallback method
 				} catch(e) {}
 			}
 
@@ -6380,7 +6380,7 @@ function fixCloneNodeIssues( src, dest ) {
 
 	nodeName = dest.nodeName.toLowerCase();
 
-	// IE6-8 copies events bound via attachEvent when using cloneNode.
+	// IE6-8 copies events bound via attachEvent when Repozytorium.Models cloneNode.
 	if ( !jQuery.support.noCloneEvent && dest[ jQuery.expando ] ) {
 		data = jQuery._data( dest );
 
@@ -6397,7 +6397,7 @@ function fixCloneNodeIssues( src, dest ) {
 		disableScript( dest ).text = src.text;
 		restoreScript( dest );
 
-	// IE6-10 improperly clones children of object elements using classid.
+	// IE6-10 improperly clones children of object elements Repozytorium.Models classid.
 	// IE10 throws NoModificationAllowedError if parent is null, #12132.
 	} else if ( nodeName === "object" ) {
 		if ( dest.parentNode ) {
@@ -8599,7 +8599,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 			// Save back as free
 			if ( s[ callbackName ] ) {
-				// make sure that re-using the options doesn't screw things around
+				// make sure that re-Repozytorium.Models the options doesn't screw things around
 				s.jsonpCallback = originalSettings.jsonpCallback;
 
 				// save the callback name for future use
@@ -8701,7 +8701,7 @@ if ( xhrSupported ) {
 					// X-Requested-With header
 					// For cross-domain requests, seeing as conditions for a preflight are
 					// akin to a jigsaw puzzle, we simply never set it to be sure.
-					// (it can always be set on a per-request basis or even using ajaxSetup)
+					// (it can always be set on a per-request basis or even Repozytorium.Models ajaxSetup)
 					// For same-domain requests, won't change header if already provided.
 					if ( !s.crossDomain && !headers["X-Requested-With"] ) {
 						headers["X-Requested-With"] = "XMLHttpRequest";
@@ -9031,7 +9031,7 @@ function propFilter( props, specialEasing ) {
 			delete props[ name ];
 
 			// not quite $.extend, this wont overwrite keys already present.
-			// also - reusing 'index' from above because we have the correct "name"
+			// also - reRepozytorium.Models 'index' from above because we have the correct "name"
 			for ( index in value ) {
 				if ( !( index in props ) ) {
 					props[ index ] = value[ index ];
@@ -9632,8 +9632,8 @@ jQuery.offset = {
 			props.left = ( options.left - curOffset.left ) + curLeft;
 		}
 
-		if ( "using" in options ) {
-			options.using.call( elem, props );
+		if ( "Repozytorium.Models" in options ) {
+			options.Repozytorium.Models.call( elem, props );
 		} else {
 			curElem.css( props );
 		}
@@ -9673,7 +9673,7 @@ jQuery.fn.extend({
 
 		// Subtract parent offsets and element margins
 		// note: when an element has margin: auto the offsetLeft and marginLeft
-		// are the same in Safari causing offset.left to incorrectly be 0
+		// are the same in Safari caRepozytorium.Models offset.left to incorrectly be 0
 		return {
 			top:  offset.top  - parentOffset.top - jQuery.css( elem, "marginTop", true ),
 			left: offset.left - parentOffset.left - jQuery.css( elem, "marginLeft", true)
