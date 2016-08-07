@@ -16,7 +16,7 @@ namespace OGL.Models
     {
         public Uzytkownik()
         {
-            this.Ogloszenia = new HashSet<Ogloszenie>;
+            this.Ogloszenia = new HashSet<Ogloszenie>();
         }
 
         // Klucz podstawowy odziedziczony po klasie IdentityUser
