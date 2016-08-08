@@ -122,6 +122,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201608081850329_startowa.cs" />
+    <Compile Include="Migrations\201608081850329_startowa.Designer.cs">
+      <DependentUpon>201608081850329_startowa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Kategoria.cs" />
     <Compile Include="Models\Oglcontext.cs" />
     <Compile Include="Models\Ogloszenie.cs" />
@@ -129,6 +134,11 @@
     <Compile Include="Models\Uzytkownik.cs" />
     <Compile Include="Models\Views\AccountViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608081850329_startowa.resx">
+      <DependentUpon>201608081850329_startowa.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
