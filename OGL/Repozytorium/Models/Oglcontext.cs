@@ -8,16 +8,16 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 namespace Repozytorium.Models
 {
 
-    public class Oglcontext : IdentityDbContext
+    public class OglContext : IdentityDbContext
     {
-        public Oglcontext()
-            : base("DefaultConnection")
+        public OglContext()
+            : base("name=OglContext")
         {
         }
 
-        public static Oglcontext Create()
+        public static OglContext Create()
         {
-            return new Oglcontext();
+            return new OglContext();
         }
 
         public DbSet<Kategoria> Kategorie { get; set; }

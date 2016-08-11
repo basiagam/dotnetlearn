@@ -128,7 +128,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Kategoria.cs" />
-    <Compile Include="Models\Oglcontext.cs" />
+    <Compile Include="Models\OglContext.cs" />
     <Compile Include="Models\Ogloszenie.cs" />
     <Compile Include="Models\Ogloszenie_Kategoria.cs" />
     <Compile Include="Models\Uzytkownik.cs" />

@@ -6,7 +6,7 @@ namespace Repozytorium.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Oglcontext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OglContext>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@ namespace Repozytorium.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(Oglcontext context)
+        protected override void Seed(OglContext context)
         {
             //  This method will be called after migrating to the latest version.
 
