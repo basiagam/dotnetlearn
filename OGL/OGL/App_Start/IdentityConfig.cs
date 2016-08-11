@@ -42,7 +42,7 @@ namespace OGL
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<Uzytkownik>(context.Get<Oglcontext>()));
+            var manager = new ApplicationUserManager(new UserStore<Uzytkownik>(context.Get<OglContext>()));
             // Konfiguruj logikę weryfikacji nazw użytkowników
             manager.UserValidator = new UserValidator<Uzytkownik>(manager)
             {

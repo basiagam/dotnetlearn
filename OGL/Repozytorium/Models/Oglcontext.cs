@@ -8,22 +8,21 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 namespace Repozytorium.Models
 {
 
-    public class Oglcontext : IdentityDbContext
+    public class OglContext : IdentityDbContext<Uzytkownik>
     {
-        public Oglcontext()
-            : base("DefaultConnection")
+        public OglContext()
+            : base("name=OglContext")
         {
         }
 
-        public static Oglcontext Create()
+        public static OglContext Create()
         {
-            return new Oglcontext();
+            return new OglContext();
         }
 
         public DbSet<Kategoria> Kategorie { get; set; }
         public DbSet<Ogloszenie> Ogloszenia { get; set; }
         public DbSet<Ogloszenie_Kategoria> Ogloszenie_Kategoria { get; set; }
-        public DbSet<Uzytkownik> Uzytkownik { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

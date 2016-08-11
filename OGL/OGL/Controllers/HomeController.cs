@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repozytorium.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,10 @@ namespace OGL.Controllers
 {
     public class HomeController : Controller
     {
+        OglContext db = new OglContext();
         public ActionResult Index()
         {
+            db.Kategorie.ToList();
             return View();
         }
 
