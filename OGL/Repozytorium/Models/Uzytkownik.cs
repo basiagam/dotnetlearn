@@ -23,6 +23,7 @@ namespace Repozytorium.Models
         // Dodajemy pola Imie i Nazwisko
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
+        public int Wiek { get; set; }
         #region dodatkowe pole notmapped
         [NotMapped] // Repozytorium.Models System.ComponentModel.DataAnnotations.Schema;
         [Display(Name = "Pan/Pani:")]

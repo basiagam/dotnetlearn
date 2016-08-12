@@ -8,7 +8,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 namespace Repozytorium.Models
 {
 
-    public class OglContext : IdentityDbContext
+    public class OglContext : IdentityDbContext<Uzytkownik>
     {
         public OglContext()
             : base("name=OglContext")
@@ -23,7 +23,6 @@ namespace Repozytorium.Models
         public DbSet<Kategoria> Kategorie { get; set; }
         public DbSet<Ogloszenie> Ogloszenia { get; set; }
         public DbSet<Ogloszenie_Kategoria> Ogloszenie_Kategoria { get; set; }
-        public DbSet<Uzytkownik> Uzytkownik { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
