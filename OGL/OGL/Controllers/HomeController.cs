@@ -12,7 +12,6 @@ namespace OGL.Controllers
         OglContext db = new OglContext();
         public ActionResult Index()
         {
-            db.Kategorie.ToList();
             return View();
         }
 

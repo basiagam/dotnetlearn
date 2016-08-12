@@ -59,7 +59,7 @@ namespace Repozytorium.Migrations
             var manager = new UserManager<Uzytkownik>(store);
             if(!context.Users.Any(u=>u.UserName == "Admin"))
             {
-                var user = new Uzytkownik { UserName = "Admin" };
+                var user = new Uzytkownik { UserName = "Admin", Wiek = 12 };
                 var adminresult = manager.Create(user, "12345678");
                 if (adminresult.Succeeded)
                     manager.AddToRole(user.Id, "Admin");
