@@ -102,39 +102,47 @@ namespace OGL.Controllers
         //        return View(ogloszenie);
         //    }
 
-        //    // GET: Ogloszenie/Delete/5
-        //    public ActionResult Delete(int? id)
-        //    {
-        //        if (id == null)
-        //        {
-        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //        }
-        //        Ogloszenie ogloszenie = db.Ogloszenia.Find(id);
-        //        if (ogloszenie == null)
-        //        {
-        //            return HttpNotFound();
-        //        }
-        //        return View(ogloszenie);
-        //    }
+        // GET: Ogloszenie/Delete/5
+        public ActionResult Delete(int? id,bool? blad)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Ogloszenie ogloszenie = _repo.GetOgloszenieById((int)id);
+            if (ogloszenie == null)
+            {
+                return HttpNotFound();
+            }
+            if (blad != null)
+                ViewBag.blad = true;
+            return View(ogloszenie);
+        }
 
-        //    // POST: Ogloszenie/Delete/5
-        //    [HttpPost, ActionName("Delete")]
-        //    [ValidateAntiForgeryToken]
-        //    public ActionResult DeleteConfirmed(int id)
-        //    {
-        //        Ogloszenie ogloszenie = db.Ogloszenia.Find(id);
-        //        db.Ogloszenia.Remove(ogloszenie);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
+        // POST: Ogloszenie/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            _repo.UsunOgloszenie(id);
+            try
+            {
+                _repo.SaveChanges();
+            } 
+            catch
+            {
+                return RedirectToAction("Delete", new { id = id, blad = true });
+            }
+            return RedirectToAction("Index");
+        }
 
-        //    protected override void Dispose(bool disposing)
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
         //    {
-        //        if (disposing)
-        //        {
-        //            db.Dispose();
-        //        }
-        //        base.Dispose(disposing);
+        //        db.Dispose();
         //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
