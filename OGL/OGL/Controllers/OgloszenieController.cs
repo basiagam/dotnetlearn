@@ -15,7 +15,7 @@ namespace OGL.Controllers
     public class OgloszenieController : Controller
     {
         //parametr new OglContext() nie wiadomo czy dobrze
-        OgloszenieRepo repo = new OgloszenieRepo(new OglContext());
+        //OgloszenieRepo repo = new OgloszenieRepo(new OglContext());
         private readonly IOgloszenieRepo _repo;
 
         public OgloszenieController(IOgloszenieRepo repo)
@@ -26,7 +26,7 @@ namespace OGL.Controllers
         // GET: Ogloszenie
         public ActionResult Index()
         {
-            var ogloszenia = repo.PobierzOgloszenia();
+            var ogloszenia = _repo.PobierzOgloszenia();
             return View(ogloszenia.ToList());
         }
 
