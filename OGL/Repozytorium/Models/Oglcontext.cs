@@ -4,25 +4,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Repozytorium.IRepo;
+using System;
 
 namespace Repozytorium.Models
 {
 
-    public class OglContext : IdentityDbContext<Uzytkownik>
+    public class OglContext : IdentityDbContext<Uzytkownik>, IOglContext
     {
         public OglContext()
             : base("name=OglContext")
         {
         }
 
+        public DbSet<Kategoria> Kategorie { get; set; }
+        public DbSet<Ogloszenie> Ogloszenia { get; set; }
+        public DbSet<Ogloszenie_Kategoria> Ogloszenie_Kategoria { get; set; }
+
         public static OglContext Create()
         {
             return new OglContext();
         }
-
-        public DbSet<Kategoria> Kategorie { get; set; }
-        public DbSet<Ogloszenie> Ogloszenia { get; set; }
-        public DbSet<Ogloszenie_Kategoria> Ogloszenie_Kategoria { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
