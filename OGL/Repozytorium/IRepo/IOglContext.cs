@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 
@@ -14,5 +15,6 @@ namespace Repozytorium.IRepo
         DbSet<Ogloszenie_Kategoria> Ogloszenie_Kategoria { get; set; }
         int SaveChanges();
         Database Database { get; }
+        DbEntityEntry Entry(object entity);
     }
 }
