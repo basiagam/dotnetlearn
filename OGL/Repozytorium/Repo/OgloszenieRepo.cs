@@ -57,5 +57,10 @@ namespace Repozytorium.Repo
         {
             _db.SaveChanges();
         }
+
+        public void Dodaj(Ogloszenie ogloszenie)
+        {
+            _db.Ogloszenia.Add(ogloszenie);
+        }
     }
 }
