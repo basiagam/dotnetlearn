@@ -160,5 +160,11 @@ namespace OGL.Controllers
         //    }
         //    base.dispose(disposing);
         //}
+
+        public ActionResult Partial()
+        {
+            var ogloszenia = _repo.PobierzOgloszenia();
+            return PartialView("Index",ogloszenia);
+        }
     }
 }
