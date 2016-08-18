@@ -44,7 +44,8 @@ namespace Repozytorium.Migrations
 
         private void SeedRoles(OglContext context)
         {
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
 
             if (!roleManager.RoleExists("Admin"))
             {
