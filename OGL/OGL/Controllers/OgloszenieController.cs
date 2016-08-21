@@ -10,6 +10,7 @@ using Repozytorium.Models;
 using Repozytorium.Repo;
 using Repozytorium.IRepo;
 using Microsoft.AspNet.Identity;
+using PagedList;
 
 namespace OGL.Controllers
 {
@@ -23,10 +24,13 @@ namespace OGL.Controllers
         } 
 
         // GET: Ogloszenie
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            int currentPage = page ?? 1;
+            int naStronie = 3;
             var ogloszenia = _repo.PobierzOgloszenia();
-            return View(ogloszenia.ToList());
+            ogloszenia = ogloszenia.OrderByDescending(d => d.DataDodania);
+            return View(ogloszenia.ToPagedList<Ogloszenie>(currentPage,naStronie));
         }
 
         // GET: Ogloszenie/Details/5
@@ -91,7 +95,7 @@ namespace OGL.Controllers
             {
                 return HttpNotFound();
             }
-            else if(ogloszenie.UzytkownikId != User.Identity.GetUserId() && !(User.IsInRole("Admin") || User.IsInRole("Pracownik"))
+            else if(ogloszenie.UzytkownikId != User.Identity.GetUserId() && !(User.IsInRole("Admin") || User.IsInRole("Pracownik")))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -172,10 +176,13 @@ namespace OGL.Controllers
         //    base.dispose(disposing);
         //}
 
-        public ActionResult Partial()
+        public ActionResult Partial(int? page)
         {
+            int currentPage = page ?? 1;
+            int naStronie = 3;
             var ogloszenia = _repo.PobierzOgloszenia();
-            return PartialView("Index",ogloszenia);
+            ogloszenia = ogloszenia.OrderByDescending(d=>d.DataDodania);
+            return PartialView("Index", ogloszenia.ToPagedList<Ogloszenie>(currentPage, naStronie));
         }
     }
 }

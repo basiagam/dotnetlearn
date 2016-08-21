@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Repozytorium.Models.Ogloszenie>
+﻿@model PagedList.IPagedList<Repozytorium.Models.Ogloszenie>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Tytul = "Lista ogłoszeń - metatytuł do 60 znaków";
@@ -18,16 +20,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Uzytkownik.Id)
+            @Html.DisplayNameFor(model => model[0].Uzytkownik.Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tresc)
+            @Html.DisplayNameFor(model => model[0].Tresc)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tytul)
+            @Html.DisplayNameFor(model => model[0].Tytul)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataDodania)
+            @Html.DisplayNameFor(model => model[0].DataDodania)
         </th>
         <th></th>
     </tr>
@@ -51,7 +53,7 @@
             @if(User.Identity.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Pracownik"))
             {
                 @Html.ActionLink("Edytuj", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" }) <br />
-                @if (User.IsInRole("Admin"))
+                if (User.IsInRole("Admin"))
                 {
                     @Html.ActionLink("Usuń", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" }) <br />
                 }
@@ -63,3 +65,9 @@
 }
 
 </table>
+<div>
+    <br />
+    Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z
+    @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
