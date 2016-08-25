@@ -1,0 +1,73 @@
+﻿@model PagedList.IPagedList<Repozytorium.Models.Ogloszenie>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Tytul = "Lista ogłoszeń - metatytuł do 60 znaków";
+    ViewBag.Opis = "Lista ogłoszeń z naszej aplikacji — metaopis do 160 znaków";
+    ViewBag.SlowaKluczowe = "Lista, ogłoszeń, słowa, kluczowe, aplikacja";
+}
+
+<h2>Lista moich ogłoszeń</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Dodaj", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Uzytkownik.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Tresc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Tytul)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].DataDodania)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uzytkownik.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tresc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tytul)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDodania)
+        </td>
+        <td>
+            @Html.ActionLink("Szczegóły", "Details", new { id = item.Id }, new { @class = "btn btn-primary" }) <br />
+            @if(User.Identity.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Pracownik"))
+            {
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" }) <br />
+                if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" }) <br />
+                }
+
+            }
+            
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    <br />
+    Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z
+    @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("MojeOgloszenia", new { page }))
+</div>
