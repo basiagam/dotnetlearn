@@ -1,4 +1,5 @@
 ﻿using Repozytorium.IRepo;
+using Repozytorium.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +16,13 @@ namespace Repozytorium.Repo
         {
             _db = db;
         }
+
+        public string NazwaDlaKategorii(int id)
+        {
+            var nazwa = _db.Kategorie.Find(id).Nazwa;
+            return nazwa;
+        }
+
         public IQueryable<Kategoria> PobierzKategorie()
         {
             _db.Database.Log = message => Trace.WriteLine(message);
@@ -22,7 +30,7 @@ namespace Repozytorium.Repo
             return kategorie;
         }
 
-        public object PobierzOgloszeniaZKategorii(int id)
+        public IQueryable<Ogloszenie> PobierzOgloszeniaZKategorii(int id)
         {
             _db.Database.Log = message => Trace.WriteLine(message);
             var ogloszenia = from o in _db.Ogloszenia

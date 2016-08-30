@@ -30,7 +30,10 @@ namespace OGL.Controllers
         public ActionResult PokazOgloszenia(int id)
         {
             var ogloszenia = _repo.PobierzOgloszeniaZKategorii(id);
-            return View(ogloszenia);
+            OgloszeniaZKategoriiViewModels model = new OgloszeniaZKategoriiViewModels();
+            model.Ogloszenia = ogloszenia.ToList();
+            model.NazwaKategorii = _repo.NazwaDlaKategorii(id);
+            return View(model);
         }
 
     }
