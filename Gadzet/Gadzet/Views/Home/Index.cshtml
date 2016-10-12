@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div style="text-align:center">
+    <h2>Witaj na mojej stronie</h2>
+</div>
+<hr />
+<div id="sekcjaTowaryPromocyjne">
+    @Html.Action("_TowaryPromocyjne")
+</div>
+<hr />
+<div id="SekcjaAktualnosci">
+    @Html.Action("_Aktualnosci")
+</div>

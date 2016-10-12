@@ -1,0 +1,29 @@
+﻿@model List<Gadzet.Models.Sklep.Towar>
+<div>
+    <h3>Polecamy</h3>
+    <div class="container">
+        <div class="row">
+            @foreach (var promocyjny in Model)
+            {
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="col-xs-10 obramowanieTowaru" style="margin-top:25px;">
+                        <center>
+                            <img style="height: 180px; width: 150px;"
+                                 src="@promocyjny.TowarZdjecia.First().Url">
+                            <div style="height: 40px; text-align: center;margin-top: 15px;">
+                                @promocyjny.Nazwa
+                            </div>
+                            <div class="indexNazwaTowaru">
+                                @promocyjny.Cena PLN / sztuka
+                            </div>
+                        </center>
+                        <div style="font-size: 12px; margin-top: 15px;">
+                            <a class="gadzetBtn btn-block"
+                               href="@Url.Action("Szczegoly","Sklep",new { id = promocyjny.IdTowar })">Szczegóły</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@model PagedList.IPagedList<Gadzet.Models.ViewModels.TowarViewModel>
+@{
+    ViewBag.Title = "Sklep";
+} 
+@using PagedList.Mvc;
+<div class="container" style="min-height: 450px; margin-bottom: 50px;">
+<div class="row">
+    <div class="col-xs-12 obramowanieTowaru" style="padding: 10px; marginbottom: 25px; font-size: 12px;">
+        <div class="row">
+            <div class="col-sm-3">
+                <b>Liczba produktów: @Model.TotalItemCount</b>
+            </div>
+            <div class="col-sm-6">
+                @using (Html.BeginForm("Index","Sklep"))
+                {
+                <center>
+                    sortuj według <span style="margin-left:5px;">
+                        @Html.DropDownList("sortowanie",
+                        (List<SelectListItem>)ViewBag.SortowanieLista, new
+                        {
+                            onchange =
+                        "this.form.submit()"
+                        })
+                    </span>
+               </center>
+            }
+            </div>
+            <div class="col-sm-3" style="text-align: right;">
+                Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+        </div>
+        </div>
+    </div>
+    @foreach (var t in Model)
+    {
+        <div class="col-sm-4 col-md-3 col-xs-10" style="margin-top: 25px;">
+            <div class="row">
+                <div class="col-xs-10 col-sm-10 col-sm-offset-1 col-xsoffset-1 obramowanieTowaru" style="height: 350px; padding: 5px;">
+                    <center>
+                        <img style="height: 180px; width: 150px;"
+                             src="@t.Zdjecia.FirstOrDefault()" />
+                        <div style="height: 40px; text-align: center;margin-top: 15px;">
+                            <h3>@t.Nazwa</h3>
+                        </div>
+                        <div style="font-size: 12px;">
+                            @t.Cena PLN / sztuka
+                        </div>
+                        <div style="font-size: 12px; text-align: center;margin-bottom: 15px; margin-top: 3px;">
+                            Dostępna ilość: @t.AktualnyStan
+                        </div>
+                    </center>
+                    <div style="font-size: 12px; margin-top: 15px;">
+                        <a class="gadzetBtn btn-block" style="margin-top:10px; min-width: 100px;" href="@Url.Action("Szczegoly","Sklep",new { id = t.IdTowar })">Szczegóły</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</div>
+<div class="row" style="margin-top: 25px;">
+<div class="col-xs-12">
+    <center>
+        <div>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, sortowanie = ViewBag.Sortowanie}))
+        </div>
+    </center>
+</div>
+</div>

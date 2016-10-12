@@ -1,0 +1,25 @@
+﻿@model List<Gadzet.Models.CMS.Aktualnosc>
+
+<div>
+    <h3>Aktualności</h3>
+    <div class="panel-group" id="accordion">
+        @foreach (var aktualnosc in Model)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapse-@aktualnosc.IdAktualnosc">
+                            @aktualnosc.Tytul
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse-@aktualnosc.IdAktualnosc" class="panelcollapse collapse in">
+                    <div class="panel-body">
+                        @aktualnosc.Tresc
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
