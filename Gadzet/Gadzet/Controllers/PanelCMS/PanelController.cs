@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Gadzet.Controllers.PanelCMS
 {
+    [Authorize(Roles = "Admin")]
     public class PanelController : Controller
     {
         // GET: Panel

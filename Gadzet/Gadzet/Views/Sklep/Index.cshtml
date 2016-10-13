@@ -16,11 +16,7 @@
                 <center>
                     sortuj według <span style="margin-left:5px;">
                         @Html.DropDownList("sortowanie",
-                        (List<SelectListItem>)ViewBag.SortowanieLista, new
-                        {
-                            onchange =
-                        "this.form.submit()"
-                        })
+                        (List<SelectListItem>)ViewBag.SortowanieLista, new { onchange = "this.form.submit()" })
                     </span>
                </center>
             }

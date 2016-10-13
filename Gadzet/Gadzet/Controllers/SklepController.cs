@@ -6,9 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using Microsoft.AspNet.Identity;
 
 namespace Gadzet.Controllers
 {
+    [Authorize(Roles ="Admin,Handlowcy")]
     public class SklepController : Controller
     {
         private GadzetContext db = new GadzetContext();
@@ -29,6 +31,18 @@ namespace Gadzet.Controllers
                               Zdjecia = t.TowarZdjecia.Select(x => x.Url),
                               AktualnyStan = t.TowarStany.Sum(x => x.Stan)
                           }).ToList() ;
+
+            string userId = User.Identity.GetUserId();
+
+            bool handlowiecVIP = (from h in db.Handlowcy
+                                  where
+                                  h.UserId == userId
+                                  select h.HandlowiecVIP).FirstOrDefault();
+
+            if (handlowiecVIP == false)
+            {
+                towary = towary.Where(x => x.VIPTowar == false).ToList();
+            }
 
             List<SelectListItem> sortowanieLista = new List<SelectListItem>
             {

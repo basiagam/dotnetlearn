@@ -1,5 +1,7 @@
 ﻿using Gadzet.Models.CMS;
 using Gadzet.Models.Sklep;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,6 +14,46 @@ namespace Gadzet.Models
     {
         protected override void Seed(GadzetContext context)
         {
+            #region ROLE
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            var rolaAdmin = new IdentityRole { Name = "Admin" };
+            roleManager.Create(rolaAdmin);
+
+            var rolaHandlowiec = new IdentityRole { Name = "Handlowiec" };
+            roleManager.Create(rolaHandlowiec);
+            context.SaveChanges();
+            #endregion
+
+            #region Konto Administratora
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+            string haslo = "piab123";
+            string email = "asp.mvc@piab.com";
+            ApplicationUser uzytkownik = new ApplicationUser()
+            {
+                UserName = email,
+                Email = email,
+                EmailConfirmed = true,
+            };
+            if (userManager.Create(uzytkownik, haslo).Succeeded)
+            {
+                userManager.AddToRole(uzytkownik.Id, "Admin");
+                Handlowiec handlowiec = new Handlowiec()
+                {
+                    Email = uzytkownik.Email,
+                    Imie = "Admin",
+                    Nazwisko = "PIAB",
+                    UserId = uzytkownik.Id
+                };
+                context.Handlowcy.Add(handlowiec);
+                context.SaveChanges();
+            }
+            context.SaveChanges();
+            #endregion
+
+
             var aktualnosci = new List<Aktualnosc>
             {
                 new Aktualnosc {Tytul = "Tytuł aktualności 1", Tresc = "Treśćaktualnosci 1", Pozycja = 1 },

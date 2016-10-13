@@ -11,6 +11,7 @@ using Gadzet.Models.CMS;
 
 namespace Gadzet.Controllers.PanelCMS
 {
+    [Authorize(Roles = "Admin")]
     public class AktualnoscController : Controller
     {
         private GadzetContext db = new GadzetContext();

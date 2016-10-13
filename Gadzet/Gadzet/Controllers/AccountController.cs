@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Gadzet.Models;
+using Gadzet.Models.Sklep;
 
 namespace Gadzet.Controllers
 {
@@ -151,19 +152,38 @@ namespace Gadzet.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var uzytkownik = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(uzytkownik, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // Więcej informacji dotyczących włączania potwierdzania konta i resetowania hasła można znaleźć na stronie http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Wyślij wiadomość e-mail z tym łączem
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Potwierdź konto", "Potwierdź konto, klikając <a href=\"" + callbackUrl + "\">tutaj</a>");
+                    var resultRole = await UserManager.AddToRoleAsync(uzytkownik.Id, "Handlowcy");
 
-                    return RedirectToAction("Index", "Home");
+                    if (resultRole.Succeeded)
+                    {
+                        using (GadzetContext db = new GadzetContext())
+                        {
+                            Handlowiec handlowiec = new Handlowiec
+                            {
+                                Imie = model.Imie,
+                                Nazwisko = model.Nazwisko,
+                                UserId = uzytkownik.Id,
+                                Email = uzytkownik.Email
+                            };
+                            db.Handlowcy.Add(handlowiec);
+                            db.SaveChanges();
+                        }
+
+                        await SignInManager.SignInAsync(uzytkownik, isPersistent: false, rememberBrowser: false);
+
+                        // Więcej informacji dotyczących włączania potwierdzania konta i resetowania hasła można znaleźć na stronie http://go.microsoft.com/fwlink/?LinkID=320771
+                        // Wyślij wiadomość e-mail z tym łączem
+                        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        // await UserManager.SendEmailAsync(user.Id, "Potwierdź konto", "Potwierdź konto, klikając <a href=\"" + callbackUrl + "\">tutaj</a>");
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(resultRole);
                 }
                 AddErrors(result);
             }
