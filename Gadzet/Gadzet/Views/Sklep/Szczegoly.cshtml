@@ -48,6 +48,10 @@
         <div class="clearfix" style="margin-bottom: 25px;"></div>
         <div>
             <center>
+                @using (Html.BeginForm("DodajPozycjeDoKoszyka", "Koszyk",
+                            FormMethod.Post))
+                {
+                    @Html.Hidden("idTowar", Model.IdTowar)
                 <table cellpadding="8">
                     <tr>
                         <td align="left">Dostępna ilość</td>
@@ -80,6 +84,7 @@
                         </td>
                     </tr>
                 </table>
+                }
             </center>
         </div>
     </div>

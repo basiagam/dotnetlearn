@@ -8,67 +8,70 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 </head>
-<body>
-    <nav id="Naglowek" class="navbar">
-        <div id="Logo" class="navbar-header col-sm-5">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#Menu">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <div class="nawigacjaLogo">
-                <a href="@Url.Action("Index","Home")">
-                    Gadzet
-                </a>
-            </div>
-        </div>
-        <div id="Menu" class="col-sm-7 navbar-collapse collapse">
-            <center>
-                <ul class="nav navbar-nav">
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <li>@Html.ActionLink("Panel administracyjny", "Index", "Panel") </li>
-                    }
-                    @if (Request.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("Sklep", "Index", "Sklep")</li>
-                        <li><a href="#">Link3</a></li>
-                        <li><a href="#">Link4</a></li>
-                        <li><a href="#">Link5</a></li>
-                    }
-                    else
-                    {
-                        <li><a href="@Url.Action("Login", "Account",null)">Logowanie</a></li>
-                    }
-                </ul>
-                <div>
-                    @if (Request.IsAuthenticated)
-                    {
-                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logOffForm" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <a href="javascript:document.getElementById('logOffForm').submit()">Wyloguj</a>
-                            @User.Identity.Name
-                        }
-                    }
+    <body>
+        <nav id="Naglowek" class="navbar">
+            <div id="Logo" class="navbar-header col-sm-5">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#Menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="nawigacjaLogo">
+                    <a href="@Url.Action("Index","Home")">
+                        Gadzet
+                    </a>
                 </div>
-            </center>
+            </div>
+            <div id="Menu" class="col-sm-7 navbar-collapse collapse">
+                <center>
+                    <ul class="nav navbar-nav">
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Panel administracyjny", "Index", "Panel") </li>
+                        }
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Sklep", "Index", "Sklep")</li>
+                            <li><a href="#">Link3</a></li>
+                            <li><a href="#">Link4</a></li>
+                            <li><a href="#">Link5</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("Login", "Account",null)">Logowanie</a></li>
+                        }
+                    </ul>
+                    <div>
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logOffForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logOffForm').submit()">Wyloguj</a>
+                                @User.Identity.Name
+                            }
+                        }
+                    </div>
+                </center>
+            </div>
+        </nav>
+        <div id="Koszyk">
+            @if (Request.IsAuthenticated)
+            {
+                @Html.Action("_MiniKoszyk", "Koszyk")
+            }
         </div>
-    </nav>
-<div id="Koszyk">
-    Koszyk
-</div>
-<div id="TrescStrony">
-    @RenderBody()
-</div>
-<footer>
-    <center>
-        WSB - NLU<br />
-        &copy; Copyright @DateTime.Now.Year
-    </center>
-</footer>
-@RenderSection("scripts", required: false)
-</body>
+        <div id="TrescStrony">
+            @RenderBody()
+        </div>
+        <footer>
+            <center>
+                WSB - NLU<br />
+                &copy; Copyright @DateTime.Now.Year
+            </center>
+        </footer>
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

@@ -1,0 +1,68 @@
+﻿@model List<Gadzet.Models.Sklep.KoszykPozycja>
+<div>
+    <div class="container">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Nazwa</th>
+                        <th>Ilość</th>
+                        <th>Cena</th>
+                        <th>Wartość</th>
+                        <th></th>
+                    </tr>
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var pozycja in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@pozycja.Towar.TowarZdjecia.First().Url" style="max-width: 80px; maxheight: 80px;" />
+                                </td>
+                                <td>
+                                    @pozycja.Towar.Nazwa
+                                </td>
+                                <td>
+                                    @pozycja.Ilosc
+                                </td>
+                                <td>
+                                    @pozycja.Towar.Cena PLN
+                                </td>
+                                <td>
+                                    @pozycja.KwotaRazem PLN
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("UsunPozycjeZKoszyka","Koszyk",new {idTowar =
+                                            pozycja.Towar.IdTowar})" class="gadzetBtn btn-block">Usuń</a>
+                                </td>
+                            </tr>
+                        } 
+                        <tr>
+                            <td><span><b>Podsumowanie</b></span></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><b>@Model.Sum(x => x.KwotaRazem) PLN</b></td>
+                            <td></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td align="center" colspan="6">
+                                Twój koszyk jest pusty.
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            @if (Model != null && Model.Count > 0)
+            {
+                <div style="float: right;">
+                    <a href="@Url.Action("DaneZamowienia")" class="gadzetBtn btn-block" style="width: 150px;">Kupuję</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

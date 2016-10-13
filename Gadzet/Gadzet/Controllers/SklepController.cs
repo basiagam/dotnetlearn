@@ -32,6 +32,19 @@ namespace Gadzet.Controllers
                               AktualnyStan = t.TowarStany.Sum(x => x.Stan)
                           }).ToList() ;
 
+            int liczbaZamowionych = 0;
+            foreach (var t in towary)
+            {
+                if (db.ZamowieniePozycje.Any(x => x.IdTowar == t.IdTowar))
+                {
+                    liczbaZamowionych = (from z in db.ZamowieniePozycje
+                                         where
+                                         z.IdTowar == t.IdTowar
+                                         select z.Ilosc).Sum();
+                    t.AktualnyStan = t.AktualnyStan - liczbaZamowionych;
+                }
+            }
+
             string userId = User.Identity.GetUserId();
 
             bool handlowiecVIP = (from h in db.Handlowcy
@@ -95,6 +108,16 @@ namespace Gadzet.Controllers
 
             if (towar == null) //nie znaleziono towary
                 return HttpNotFound();
+
+            int liczbaZamowionych = 0;
+            if (db.ZamowieniePozycje.Any(x => x.IdTowar == towar.IdTowar))
+            {
+                liczbaZamowionych = (from z in db.ZamowieniePozycje
+                                     where
+                                     z.IdTowar == towar.IdTowar
+                                     select z.Ilosc).Sum();
+            }
+            towar.AktualnyStan = towar.AktualnyStan - liczbaZamowionych;
 
             return View(towar);
         }

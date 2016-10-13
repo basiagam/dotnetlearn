@@ -19,11 +19,11 @@ namespace Gadzet.Models
         }
 
         public DbSet<Aktualnosc> Aktualnosci { get; set; }
-
         public DbSet<Towar> Towary { get; set; }
         public DbSet<TowarStan> TowarStany { get; set; }
         public DbSet<TowarZdjecie> TowarZdjecia { get; set; }
-
         public DbSet<Handlowiec> Handlowcy { get; set; }
+        public DbSet<Zamowienie> Zamowienia { get; set; }
+        public DbSet<ZamowieniePozycja> ZamowieniePozycje { get; set; }
     }
 }
