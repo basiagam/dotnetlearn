@@ -1,0 +1,57 @@
+﻿@model Gadzet.Models.Sklep.Towar
+@{
+    ViewBag.Title = "Delete";
+} <
+h3>Czy jesteś pewien, że chcesz usunąć towar?</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-8 obramowanieTowaru" style="margintop: 20px; margin-bottom: 20px;">
+            <h4>Towar</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nazwa)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nazwa)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Opis)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Opis)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cena)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cena)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.VIPTowar)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.VIPTowar)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TowarPromocyjny)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TowarPromocyjny)
+                </dd>
+            </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    @Html.ActionLink("Wróć do listy", "Index", null, new
+                       {
+                           @class = "gadzetBtn btn-block",
+                           @style = "width: 150px; margin-right: 10px; float: left; "
+                       })
+                    <input type="submit" value="Usuń" class="gadzetBtn btndefault" style="width: 150px;" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

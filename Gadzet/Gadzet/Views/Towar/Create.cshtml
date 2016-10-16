@@ -1,0 +1,115 @@
+﻿@model Gadzet.Models.Sklep.Towar
+@{
+    ViewBag.Title = "Create";
+} 
+<div class="container">
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-8 obramowanieTowaru" style="margintop: 20px; margin-bottom: 20px;">
+        @using (Html.BeginForm("Create", "Towar", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data"
+        }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <h4>Towar</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "textdanger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nazwa, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Nazwa, new
+                   {
+                       htmlAttributes = new { @class = "form-control" }
+                   })
+                        @Html.ValidationMessageFor(model => model.Nazwa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Opis, htmlAttributes: new
+               {
+                   @class = "control-label col-md-4"
+               })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Opis, new
+                   {
+                       htmlAttributes = new { @class = "form-control" }
+                   })
+                        @Html.ValidationMessageFor(model => model.Opis, "",
+new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cena, htmlAttributes: new
+               {
+                   @class = "control-label col-md-4"
+               })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Cena, new
+                   {
+                       htmlAttributes = new { @class = "form-control" }
+                   })
+                        @Html.ValidationMessageFor(model => model.Cena, "",
+new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.VIPTowar, htmlAttributes:
+new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.VIPTowar)
+                            @Html.ValidationMessageFor(model =>
+model.VIPTowar, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TowarPromocyjny,
+htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.TowarPromocyjny)
+                            @Html.ValidationMessageFor(model =>
+model.TowarPromocyjny, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Zdjęcie", htmlAttributes: new
+               {
+                   @class =
+"control-label col-md-4"
+               })
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            <input type="file" name="file" accept="image/*" />
+                            @Html.ValidationMessage("BladPliku", new
+                       {
+                           @class = "text-danger"
+                       })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <input type="submit" value="Dodaj" class="gadzetBtn
+btn-default" style="width: 150px;" />
+                    </div>
+                </div>
+            </div>
+        } 
+        <div>
+        @Html.ActionLink("Wróć do listy", "Index", null, new
+{
+    @class =
+"gadzetBtn btn-block",
+    @style = "width: 150px;"
+})
+    </div>
+</div>
+</div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

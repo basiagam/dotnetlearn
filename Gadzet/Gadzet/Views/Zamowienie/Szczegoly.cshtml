@@ -1,0 +1,83 @@
+﻿@model Gadzet.Models.Sklep.Zamowienie
+@{
+    ViewBag.Title = "Szczegóły";
+} 
+<div class="container">
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-8 obramowanieTowaru" style="marginbottom: 20px;">
+        <div class="form-horizontal" style="margin-bottom: 20px;">
+            <div style="padding-top: 20px;">Informacje o zamówieniu</div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-6" style="margin-bottom: 5px;">
+                    <div class="col-xs-5"><b>Zamawiający</b></div>
+                    <div class="col-xs-6">
+                        @Model.Nazwisko @Model.Imie
+                    </div>
+                </div>
+                <div class="col-sm-6" style="margin-bottom: 5px;">
+                    <div class="col-xs-5"><b>Data zamówienia</b></div>
+                    <div class="col-xs-6">
+                        @Model.DataZamowienia
+                    </div>
+                </div>
+                <div class="col-sm-6" style="margin-bottom: 5px;">
+                    <div class="col-xs-5"><b>Adres</b></div>
+                    <div class="col-xs-7">
+                        @Model.Adres
+                    </div>
+                </div>
+                <div class="col-sm-6" style="margin-bottom: 5px;">
+                    <div class="col-xs-5"><b>Telefon</b></div>
+                    <div class="col-xs-7">
+                        @Model.Telefon
+                    </div>
+                </div>
+                <div class="col-sm-6" style="margin-bottom: 5px;">
+                    <div class="col-xs-5"><b>E-mail</b></div>
+                    <div class="col-xs-7">
+                        @Model.Email
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-8 obramowanieTowaru" style="marginbottom: 20px;">
+        <div style="padding-top: 20px;">Pozycje zmówienia</div>
+        <hr />
+        <div>
+            <table class="table table-striped">
+                <tr>
+                    <th>Produkt</th>
+                    <th>Ilość</th>
+                    <th>Cena</th>
+                    <th>Wartość</th>
+                </tr>
+                @foreach (var p in Model.ZamowieniePozycja)
+                {
+                    <tr>
+                        <td>@p.Towar.Nazwa</td>
+                        <td>@p.Ilosc</td>
+                        <td>@p.Cena</td>
+                        <td>@p.Wartosc</td>
+                    </tr>
+                } 
+                <tr>
+                <td><span><b>Podsumowanie</b></span></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <span>
+                        <b>
+                            @Model.ZamowieniePozycja.Sum(x =>x.Wartosc)
+                    </b>
+                </span>
+            </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+</div>

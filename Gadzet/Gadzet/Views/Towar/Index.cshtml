@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <div style="text-align: center">
+            Data utworzenia strony:
+            @DateTime.Now
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.ActionLink("Dodaj", "Create", null, new
+               {
+                   @class =
+                    "gadzetBtn btn-block",
+                   @style = "width: 150px;"
+               })
+                </div>
+                <div class="col-xs-6" style="text-align: right;">
+                    @using (Ajax.BeginForm("_ListaTowarow", new AjaxOptions
+                    {
+                        UpdateTargetId = "tabelaZListaTowarow"
+                    }))
+                    {
+                        <input type="text" name="szukaj" id="szukaj"
+                               placeholder="Szukaj..." />
+                        <input type="submit" value="Szukaj" class="gadzetBtn"
+                               step="max-width: 150px;" />
+                    }
+                </div>
+            </div>
+        </div>
+        <div id="tabelaZListaTowarow" class="table-responsive">
+            @Html.Action("_ListaTowarow")
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Dodaj zdjęcia";
+} 
+<link href="~/Scripts/dropzone/basic.css" rel="stylesheet" />
+<link href="~/Scripts/dropzone/dropzone.css" rel="stylesheet" />
+<script src="~/Scripts/dropzone/dropzone.js"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <div class="jumbotron">
+                <form action="~/Towar/ZapiszZdjecia" method="post"
+                      enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+                    <input type="hidden" id="id" name="id"
+                           value="@ViewBag.IdTowar" />
+                    <div class="fallback">
+                        <input name="file" type="file" multiple />
+                        <input type="submit" value="Upload" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

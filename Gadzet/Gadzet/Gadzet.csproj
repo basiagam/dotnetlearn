@@ -181,7 +181,9 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PanelCMS\AktualnoscController.cs" />
     <Compile Include="Controllers\PanelCMS\PanelController.cs" />
+    <Compile Include="Controllers\PanelCMS\ZamowienieController.cs" />
     <Compile Include="Controllers\SklepController.cs" />
+    <Compile Include="Controllers\TowarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +201,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BusinessLogic\TowarBL.cs" />
     <Compile Include="Models\CMS\Aktualnosc.cs" />
     <Compile Include="Models\GadzetContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -231,9 +234,19 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dropzone\basic.css" />
+    <Content Include="Scripts\dropzone\basic.min.css" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\dropzone\dropzone.css" />
+    <Content Include="Scripts\dropzone\dropzone.js" />
+    <Content Include="Scripts\dropzone\dropzone.min.css" />
+    <Content Include="Scripts\dropzone\dropzone.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -292,6 +305,14 @@
     <Content Include="Views\Koszyk\DaneZamowienia.cshtml" />
     <Content Include="Views\Koszyk\PotwierdzenieZamowienia.cshtml" />
     <Content Include="Views\Koszyk\_MiniKoszyk.cshtml" />
+    <Content Include="Views\Towar\Edit.cshtml" />
+    <Content Include="Views\Zamowienie\Index.cshtml" />
+    <Content Include="Views\Zamowienie\Szczegoly.cshtml" />
+    <Content Include="Views\Towar\Index.cshtml" />
+    <Content Include="Views\Towar\_ListaTowarow.cshtml" />
+    <Content Include="Views\Towar\Create.cshtml" />
+    <Content Include="Views\Towar\DodajZdjecia.cshtml" />
+    <Content Include="Views\Towar\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

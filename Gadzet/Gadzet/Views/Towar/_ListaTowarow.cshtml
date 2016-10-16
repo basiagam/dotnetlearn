@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Gadzet.Models.Sklep.Towar>
+@{
+    ViewBag.Title = "_ListaTowarow";
+    string[] tablicaSort = ViewBag.TablicaSort;
+    string szukaj = ViewBag.Szukaj;
+    Layout = null;
+}
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Ajax.ActionLink("Nazwa", "_ListaTowarow", new
+   {
+       szukaj = szukaj,
+       sort = tablicaSort[0]
+   }, new AjaxOptions
+   {
+       UpdateTargetId =
+        "tabelaZListaTowarow"
+   })
+        </th>
+        <th>
+            @Ajax.ActionLink("Opis", "_ListaTowarow", new
+   {
+       szukaj = szukaj,
+       sort = tablicaSort[1]
+   }, new AjaxOptions
+   {
+       UpdateTargetId =
+        "tabelaZListaTowarow"
+   })
+        </th>
+        <th>
+            @Ajax.ActionLink("Cena", "_ListaTowarow", new
+   {
+       szukaj = szukaj,
+       sort = tablicaSort[2]
+   }, new AjaxOptions
+   {
+       UpdateTargetId =
+        "tabelaZListaTowarow"
+   })
+        </th>
+        <th>
+            @Ajax.ActionLink("VIPTowar", "_ListaTowarow", new
+   {
+       szukaj =
+        szukaj,
+       sort = tablicaSort[3]
+   }, new AjaxOptions
+   {
+       UpdateTargetId =
+        "tabelaZListaTowarow"
+   })
+        </th>
+        <th>
+            @Ajax.ActionLink("TowarPromocyjny", "_ListaTowarow", new
+       {
+           szukaj =
+    szukaj,
+           sort = tablicaSort[4]
+       }, new AjaxOptions
+       {
+           UpdateTargetId =
+    "tabelaZListaTowarow"
+       })
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIPTowar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TowarPromocyjny)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.IdTowar })
+                @Html.ActionLink("Usuń", "Delete", new { id = item.IdTowar })
+            </td>
+        </tr>
+    }
+</table>
