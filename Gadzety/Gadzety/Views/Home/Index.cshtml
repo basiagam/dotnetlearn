@@ -1,8 +1,7 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Strona główna";
 }
 
-<div class="container">
     <!--3 glowne gridy-->
     <div class="row">
         <div class="col m4">
@@ -15,14 +14,49 @@
         </div>
         <div class="col m4"><h2>Koszyk</h2></div>
     </div>
-    <!--bok, kategorie-->
+    
     <div class="row">
         <div class="col m2">
+            <!-- kategorie-->
             <ul class="collection with-header">
-                <li class="collection-header indigo darken-3"><h5><span id="produktyNapis">Produkty</span></li>
+                <li class="collection-header indigo darken-3"><span id="produktyNapis">Produkty</span></li>
                 <li class="collection-item"><div><i class="material-icons tiny">trending_flat</i><a href="#" class="secondary-content">Kategoria</a></div></li>
                 <li class="collection-item"><div><i class="material-icons tiny">trending_flat</i><a href="#" class="secondary-content">Kategoria</a></div></li>
                 <li class="collection-item"><div><i class="material-icons tiny">trending_flat</i><a href="#" class="secondary-content">Kategoria</a></div></li>
             </ul>
+            <!--boczki-->
+            <div id="blok">Miejsce na banner FB</div>
+            <div id="blok">
+                <h4>Newsletter</h4>
+                <p>Zyskujesz super możliwości zapisując się do naszego newslettera</p>
+            </div>
+            <div id="blok">Nowości</div>
+            <div id="blok">Miejsce na banner PayU</div>
+        </div>
+        <!-- slider-->
+        <div class="col m10">
+            <div class="slider">
+                <ul class="slides">
+                    <li>
+                        <img src="http://lorempixel.com/580/250/nature/1"> 
+                    </li>
+                    <li>
+                        <img src="http://lorempixel.com/580/250/nature/2"> 
+                    </li>
+                    <li>
+                        <img src="http://lorempixel.com/580/250/nature/3"> 
+                    </li>
+                    <li>
+                        <img src="http://lorempixel.com/580/250/nature/4"> 
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </div>
+
+<script>
+    $(document).ready(function(){
+        $('.slider').slider();
+    });
+</script>
