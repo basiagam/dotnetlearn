@@ -12,17 +12,24 @@
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper indigo darken-4">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>@Html.ActionLink("Index","Home")</li>
-                <li>@Html.ActionLink("O nas", "About")</li>
-                <li>@Html.ActionLink("Kontakt", "Contact")</li>
-            </ul>
+        <div class="nav-wrapper indigo darken-3">
+            <div id="logowanie">
+                <ul id="nav-mobile" class="left hide-on-small-and-down">
+                    <li>@Html.ActionLink("Logowanie", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Rejestracja", "Register", "Account")</li>
+                </ul>         
+            </div>
+            <div id="szukajka">
+                <div class="right hide-on-small-and-down">
+                    Szukajka
+                </div>
+            </div>
         </div>
+
     </nav>
 
-    <div class="container">
+    
+
         @RenderBody()
         <hr />
         <footer>
