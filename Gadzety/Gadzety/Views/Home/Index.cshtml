@@ -18,12 +18,7 @@
     <div class="row">
         <div class="col m2">
             <!-- kategorie-->
-            <ul class="collection with-header">
-                <li class="collection-header indigo darken-3"><span id="produktyNapis">Produkty</span></li>
-                <li class="collection-item"><div><i class="material-icons tiny">trending_flat</i><a href="#" class="secondary-content">Kategoria</a></div></li>
-                <li class="collection-item"><div><i class="material-icons tiny">trending_flat</i><a href="#" class="secondary-content">Kategoria</a></div></li>
-                <li class="collection-item"><div><i class="material-icons tiny">trending_flat</i><a href="#" class="secondary-content">Kategoria</a></div></li>
-            </ul>
+            @Html.Action("_Kategorie");
             <!--boczki-->
             <div id="blok">Miejsce na banner FB</div>
             <div id="blok">
@@ -51,7 +46,8 @@
                     </li>
                 </ul>
             </div>
-
+            <!--polecane-->
+            @Html.Action("_Polecane");
         </div>
     </div>
 

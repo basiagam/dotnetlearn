@@ -43,3 +43,6 @@ textarea {
 .slider .indicators .indicator-item.active{
     background-color:#283593;
 }
+.obramowanieTowaru{
+    border: 1px solid #e0e0e0;
+}

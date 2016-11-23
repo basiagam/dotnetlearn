@@ -1,0 +1,22 @@
+﻿@model List <Gadzety.Models.Towar>
+
+<div class="row">
+    <h3>Polecane produkty</h3>
+    @foreach (var t in Model)
+    {
+        <div class="col s12 col m6 l4 obramowanieTowaru" style="margin-top: 25px; padding:5px; ">
+            <center>
+                <div style="height:40px; text-align:center; margin-top:10px;">
+                    <h4>@t.Nazwa</h4>
+                </div>
+                <img style="height:180px; width:150px;" src="@t.TowarZdjecia.Select(x=>x.Url).FirstOrDefault()" />
+            </center>
+                <div style="font-size: 12px; margin:15px 0px 0px 5px;">
+                    @t.Cena PLN 
+                </div>
+                <div style="font-size:12px; float:right; margin-right:5px;">
+                    <a class="btn indigo darken-3" href="#">Szczegóły</a>
+                </div>
+        </div>
+    }        
+</div>

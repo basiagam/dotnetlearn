@@ -17,6 +17,11 @@ namespace Gadzety.Models
                 new Towar {Nazwa = "Towar 3", Opis="Opis towaru", Cena = 3, TowarPolecany = true, TowarPromocyjny = true },
                 new Towar {Nazwa = "Towar 4", Opis="Opis towaru", Cena = 4, TowarPolecany = true, TowarPromocyjny = false },
                 new Towar {Nazwa = "Towar 5", Opis="Opis towaru", Cena = 5, TowarPolecany = true, TowarPromocyjny = true },
+                new Towar {Nazwa = "Towar 6", Opis="Opis towaru", Cena = 6, TowarPolecany = true, TowarPromocyjny = false },
+                new Towar {Nazwa = "Towar 7", Opis="Opis towaru", Cena = 7, TowarPolecany = false, TowarPromocyjny = false },
+                new Towar {Nazwa = "Towar 8", Opis="Opis towaru", Cena = 8, TowarPolecany = true, TowarPromocyjny = true },
+                new Towar {Nazwa = "Towar 9", Opis="Opis towaru", Cena = 9, TowarPolecany = true, TowarPromocyjny = false },
+                new Towar {Nazwa = "Towar 10", Opis="Opis towaru", Cena = 10, TowarPolecany = true, TowarPromocyjny = true },
             };
 
             foreach (var t in Towary)
@@ -46,6 +51,11 @@ namespace Gadzety.Models
                 new TowarZdjecie { IdTowar = 3,Url="/Content/Images/image3.jpg" },
                 new TowarZdjecie { IdTowar = 4,Url="/Content/Images/image4.jpg" },
                 new TowarZdjecie { IdTowar = 5,Url="/Content/Images/image5.jpg" },
+                new TowarZdjecie { IdTowar = 6,Url="/Content/Images/image1.jpg" },
+                new TowarZdjecie { IdTowar = 7,Url="/Content/Images/image2.jpg" },
+                new TowarZdjecie { IdTowar = 8,Url="/Content/Images/image3.jpg" },
+                new TowarZdjecie { IdTowar = 9,Url="/Content/Images/image4.jpg" },
+                new TowarZdjecie { IdTowar = 10,Url="/Content/Images/image5.jpg" },
             };
 
             foreach (var z in towarZdjecia)
@@ -60,6 +70,11 @@ namespace Gadzety.Models
             new TowarStan {IdTowar = 3, Stan = 13, DataDodania = DateTime.Now },
             new TowarStan {IdTowar = 4, Stan = 14, DataDodania = DateTime.Now },
             new TowarStan {IdTowar = 5, Stan = 15, DataDodania = DateTime.Now },
+            new TowarStan {IdTowar = 6, Stan = 11, DataDodania = DateTime.Now },
+            new TowarStan {IdTowar = 7, Stan = 12, DataDodania = DateTime.Now },
+            new TowarStan {IdTowar = 8, Stan = 13, DataDodania = DateTime.Now },
+            new TowarStan {IdTowar = 9, Stan = 14, DataDodania = DateTime.Now },
+            new TowarStan {IdTowar = 10, Stan = 15, DataDodania = DateTime.Now },
             };
 
             foreach (var s in towarStany)

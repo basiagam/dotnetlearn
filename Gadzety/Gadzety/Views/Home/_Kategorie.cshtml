@@ -1,0 +1,14 @@
+﻿@model List<Gadzety.Models.Kategoria>
+<ul class="collection with-header">
+    <li class="collection-header indigo darken-3"><span id="produktyNapis">Produkty</span></li>
+    @foreach (var t in Model)
+    {
+        <li class="collection-item">
+            <div><i class="material-icons tiny">trending_flat</i>
+                @Html.ActionLink(t.Nazwa, "Pokaz", "Kategoria", new { id = t.Id },null)
+                
+            </div>
+        </li>
+    }  
+</ul>
+
