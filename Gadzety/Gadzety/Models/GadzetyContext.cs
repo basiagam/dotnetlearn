@@ -18,16 +18,22 @@ namespace Gadzety.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class GadzetyContext : IdentityDbContext
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public GadzetyContext()
+            : base("name=GadzetyContext")
         {
         }
 
-        public static ApplicationDbContext Create()
+        public static GadzetyContext Create()
         {
-            return new ApplicationDbContext();
+            return new GadzetyContext();
         }
+
+        public DbSet<Kategoria> Kategorie { get; set; }
+        public DbSet<Towar_Kategoria> Towar_Kategoria { get; set; }
+        public DbSet<Towar> Towary { get; set; }
+        public DbSet<TowarStan> TowarStany { get; set; }
+        public DbSet<TowarZdjecie> TowarZdjecia { get; set; }
     }
 }
