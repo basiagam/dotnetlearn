@@ -16,13 +16,13 @@
     <nav>
         <div class="nav-wrapper indigo darken-3">
             <div id="logowanie">
-                <ul id="nav-mobile" class="left hide-on-small-and-down">
+                <ul id="nav-mobile" class="left">
                     <li>@Html.ActionLink("Logowanie", "Login", "Account")</li>
                     <li>@Html.ActionLink("Rejestracja", "Register", "Account")</li>
                 </ul>         
             </div>
             <div id="szukajka">
-                <div class="right hide-on-small-and-down">
+                <div class="right">
                     Szukajka
                 </div>
             </div>
@@ -42,18 +42,6 @@
             <div class="col m4"><h2>Koszyk</h2></div>
         </div>
         <div class="row">
-            <div class="col m2">
-                <!-- kategorie-->
-                @Html.Action("_Kategorie", "Home")
-                <!--boczki-->
-                <div id="blok">Miejsce na banner FB</div>
-                <div id="blok">
-                    <h4>Newsletter</h4>
-                    <p>Zyskujesz super możliwości zapisując się do naszego newslettera</p>
-                </div>
-                <div id="blok">Nowości</div>
-                <div id="blok">Miejsce na banner PayU</div>
-            </div>
             @RenderBody()
         </div>
         </div>

@@ -44,7 +44,7 @@
             @Html.LabelFor(model => model.TowarPromocyjny, htmlAttributes: new { @class = "control-label col m2" })
             <div class="col m10">
                 <div class="checkbox">
-                    <input type="checkbox" name="TowarPromocyjny" id="TowarPromocyjny" />
+                    <input type="checkbox" name="TowarPromocyjny" id="TowarPromocyjny" value="true" />
                     <label for="TowarPromocyjny">TowarPromocyjny</label>
                     @Html.ValidationMessageFor(model => model.TowarPromocyjny, "", new { @class = "text-danger" })
                 </div>
@@ -55,7 +55,7 @@
             @Html.LabelFor(model => model.TowarPolecany, htmlAttributes: new { @class = "control-label col m2" })
             <div class="col m10">
                 <div class="checkbox">
-                    <input type="checkbox" name="TowarPolecany" id="TowarPolecany" />
+                    <input type="checkbox" name="TowarPolecany" id="TowarPolecany" value="true"/>
                     <label for="TowarPolecany">Towar polecany</label>
                     @Html.ValidationMessageFor(model => model.TowarPolecany, "", new { @class = "text-danger" })
                 </div>
