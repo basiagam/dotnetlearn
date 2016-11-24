@@ -23,13 +23,12 @@ namespace Gadzety.Models
         [Display(Name = "Towar polecany")]
         public bool TowarPolecany { get; set; }
 
+        public int IdKategoria { get; set; }
+        public virtual Kategoria Kategoria { get; set; }
+
+
         public virtual ICollection<TowarZdjecie> TowarZdjecia { get; set; }
         public virtual ICollection<TowarStan> TowarStany { get; set; }
-
-        public virtual ICollection<Towar_Kategoria> Towar_Kategoria
-        {
-            get; set;
-        }
 
     }
 }

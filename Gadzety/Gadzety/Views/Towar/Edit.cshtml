@@ -1,0 +1,90 @@
+﻿@model Gadzety.Models.Towar
+
+@{
+    ViewBag.Title = "Edytuj towar";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Towar</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IdTowar)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nazwa, htmlAttributes: new { @class = "control-label col m2" })
+            <div class="col m10">
+                @Html.EditorFor(model => model.Nazwa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nazwa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Opis, htmlAttributes: new { @class = "control-label col m2" })
+            <div class="col m10">
+                @Html.EditorFor(model => model.Opis, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Opis, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cena, htmlAttributes: new { @class = "control-label col m2" })
+            <div class="col m10">
+                @Html.EditorFor(model => model.Cena, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cena, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TowarPromocyjny, htmlAttributes: new { @class = "control-label col m2" })
+            <div class="col m10">
+                <div class="checkbox">
+                    <input type="checkbox" name="TowarPromocyjny" id="TowarPromocyjny" />
+                    <label for="TowarPromocyjny">TowarPromocyjny</label>
+                    @Html.ValidationMessageFor(model => model.TowarPromocyjny, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TowarPolecany, htmlAttributes: new { @class = "control-label col m2" })
+            <div class="col m10">
+                <div class="checkbox">
+                    <input type="checkbox" name="TowarPolecany" id="TowarPolecany" />
+                    <label for="TowarPolecany">Towar polecany</label>
+                    @Html.ValidationMessageFor(model => model.TowarPolecany, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdKategoria, htmlAttributes: new { @class = "control-label col m2" })
+            <div class="col m10">
+                <div class="checkbox">
+                    @Html.DropDownListFor(model => model.IdKategoria, (SelectList)ViewBag.ListaKategori)
+                    @Html.ValidationMessageFor(model => model.IdKategoria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+</script>

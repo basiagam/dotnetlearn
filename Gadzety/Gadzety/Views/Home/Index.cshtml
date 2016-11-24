@@ -1,55 +1,28 @@
 ﻿@{
     ViewBag.Title = "Strona główna";
 }
+<!-- slider-->
+<div class="col m10">
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/1">
+            </li>
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/2">
+            </li>
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/3">
+            </li>
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/4">
+            </li>
+        </ul>
+    </div>
+    <!--polecane-->
+    @Html.Action("_Polecane")
+</div>        
 
-    <!--3 glowne gridy-->
-    <div class="row">
-        <div class="col m4">
-            <h2>Logo</h2>
-            <p>logo naszego sklepu</p>
-        </div>
-        <div class="col m4">
-            <h2>XXX XXX XXX</h2>
-            <p>Masz pytania? Zadzwoń</p>
-        </div>
-        <div class="col m4"><h2>Koszyk</h2></div>
-    </div>
-    
-    <div class="row">
-        <div class="col m2">
-            <!-- kategorie-->
-            @Html.Action("_Kategorie");
-            <!--boczki-->
-            <div id="blok">Miejsce na banner FB</div>
-            <div id="blok">
-                <h4>Newsletter</h4>
-                <p>Zyskujesz super możliwości zapisując się do naszego newslettera</p>
-            </div>
-            <div id="blok">Nowości</div>
-            <div id="blok">Miejsce na banner PayU</div>
-        </div>
-        <!-- slider-->
-        <div class="col m10">
-            <div class="slider">
-                <ul class="slides">
-                    <li>
-                        <img src="http://lorempixel.com/580/250/nature/1"> 
-                    </li>
-                    <li>
-                        <img src="http://lorempixel.com/580/250/nature/2"> 
-                    </li>
-                    <li>
-                        <img src="http://lorempixel.com/580/250/nature/3"> 
-                    </li>
-                    <li>
-                        <img src="http://lorempixel.com/580/250/nature/4"> 
-                    </li>
-                </ul>
-            </div>
-            <!--polecane-->
-            @Html.Action("_Polecane");
-        </div>
-    </div>
 
 <script>
     $(document).ready(function(){

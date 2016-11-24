@@ -169,15 +169,25 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TowarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611241434552_start.cs" />
+    <Compile Include="Migrations\201611241434552_start.Designer.cs">
+      <DependentUpon>201611241434552_start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611241547441_key.cs" />
+    <Compile Include="Migrations\201611241547441_key.Designer.cs">
+      <DependentUpon>201611241547441_key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GadzetyContext.cs" />
     <Compile Include="Models\Kategoria.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Towar_Kategoria.cs" />
     <Compile Include="Models\SampleData.cs" />
     <Compile Include="Models\Towar.cs" />
     <Compile Include="Models\TowarStan.cs" />
@@ -249,6 +259,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\_Polecane.cshtml" />
     <Content Include="Views\Home\_Kategorie.cshtml" />
+    <Content Include="Views\Kategoria\Create.cshtml" />
+    <Content Include="Views\Kategoria\Delete.cshtml" />
+    <Content Include="Views\Kategoria\Details.cshtml" />
+    <Content Include="Views\Kategoria\Edit.cshtml" />
+    <Content Include="Views\Kategoria\Index.cshtml" />
+    <Content Include="Views\Towar\Create.cshtml" />
+    <Content Include="Views\Towar\Delete.cshtml" />
+    <Content Include="Views\Towar\Details.cshtml" />
+    <Content Include="Views\Towar\Edit.cshtml" />
+    <Content Include="Views\Towar\Index.cshtml" />
+    <Content Include="Views\Towar\PokazKategorie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,6 +281,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611241434552_start.resx">
+      <DependentUpon>201611241434552_start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611241547441_key.resx">
+      <DependentUpon>201611241547441_key.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,32 @@
+﻿@model Gadzety.Models.Kategoria
+
+@{
+    ViewBag.Title = "Usuwanie kategorii";
+}
+
+<h2>Usuwanie kategorii</h2>
+
+<h3>Czy jesteś pewien że chcesz usunąć?</h3>
+<div>
+    <h4>Kategoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn red darken-4" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

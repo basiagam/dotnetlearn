@@ -10,28 +10,10 @@ namespace Gadzety.Models
     {
         protected override void Seed(GadzetyContext context)
         {
-            var Towary = new List<Towar>
-            {
-                new Towar {Nazwa = "Towar 1", Opis="Opis towaru", Cena = 1, TowarPolecany = true, TowarPromocyjny = false },
-                new Towar {Nazwa = "Towar 2", Opis="Opis towaru", Cena = 2, TowarPolecany = false, TowarPromocyjny = false },
-                new Towar {Nazwa = "Towar 3", Opis="Opis towaru", Cena = 3, TowarPolecany = true, TowarPromocyjny = true },
-                new Towar {Nazwa = "Towar 4", Opis="Opis towaru", Cena = 4, TowarPolecany = true, TowarPromocyjny = false },
-                new Towar {Nazwa = "Towar 5", Opis="Opis towaru", Cena = 5, TowarPolecany = true, TowarPromocyjny = true },
-                new Towar {Nazwa = "Towar 6", Opis="Opis towaru", Cena = 6, TowarPolecany = true, TowarPromocyjny = false },
-                new Towar {Nazwa = "Towar 7", Opis="Opis towaru", Cena = 7, TowarPolecany = false, TowarPromocyjny = false },
-                new Towar {Nazwa = "Towar 8", Opis="Opis towaru", Cena = 8, TowarPolecany = true, TowarPromocyjny = true },
-                new Towar {Nazwa = "Towar 9", Opis="Opis towaru", Cena = 9, TowarPolecany = true, TowarPromocyjny = false },
-                new Towar {Nazwa = "Towar 10", Opis="Opis towaru", Cena = 10, TowarPolecany = true, TowarPromocyjny = true },
-            };
-
-            foreach (var t in Towary)
-            {
-                context.Towary.Add(t);
-            }
 
             var Kategorie = new List<Kategoria>
             {
-                new Kategoria {Nazwa="Męskie" },
+                new Kategoria {Nazwa="Męskie"},
                 new Kategoria {Nazwa="Damskie" },
                 new Kategoria {Nazwa="Dla dzieci" },
                 new Kategoria {Nazwa="Kawalerski" },
@@ -42,6 +24,25 @@ namespace Gadzety.Models
             foreach (var k in Kategorie)
             {
                 context.Kategorie.Add(k);
+            }
+
+            var Towary = new List<Towar>
+            {
+                new Towar {Nazwa = "Towar 1", Opis="Opis towaru", Cena = 1, TowarPolecany = true, TowarPromocyjny = false,IdKategoria = 1 },
+                new Towar {Nazwa = "Towar 2", Opis="Opis towaru", Cena = 2, TowarPolecany = false, TowarPromocyjny = false,IdKategoria = 2 },
+                new Towar {Nazwa = "Towar 3", Opis="Opis towaru", Cena = 3, TowarPolecany = true, TowarPromocyjny = true,IdKategoria = 3 },
+                new Towar {Nazwa = "Towar 4", Opis="Opis towaru", Cena = 4, TowarPolecany = true, TowarPromocyjny = false,IdKategoria = 4 },
+                new Towar {Nazwa = "Towar 5", Opis="Opis towaru", Cena = 5, TowarPolecany = true, TowarPromocyjny = true,IdKategoria = 5 },
+                new Towar {Nazwa = "Towar 6", Opis="Opis towaru", Cena = 6, TowarPolecany = true, TowarPromocyjny = false,IdKategoria = 2 },
+                new Towar {Nazwa = "Towar 7", Opis="Opis towaru", Cena = 7, TowarPolecany = false, TowarPromocyjny = false,IdKategoria = 1 },
+                new Towar {Nazwa = "Towar 8", Opis="Opis towaru", Cena = 8, TowarPolecany = true, TowarPromocyjny = true,IdKategoria = 3 },
+                new Towar {Nazwa = "Towar 9", Opis="Opis towaru", Cena = 9, TowarPolecany = true, TowarPromocyjny = false,IdKategoria = 4 },
+                new Towar {Nazwa = "Towar 10", Opis="Opis towaru", Cena = 10, TowarPolecany = true, TowarPromocyjny = true,IdKategoria = 5 },
+            };
+
+            foreach (var t in Towary)
+            {
+                context.Towary.Add(t);
             }
 
             var towarZdjecia = new List<TowarZdjecie>

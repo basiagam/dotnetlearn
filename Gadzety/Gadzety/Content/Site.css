@@ -43,6 +43,32 @@ textarea {
 .slider .indicators .indicator-item.active{
     background-color:#283593;
 }
+
+.dropdown-content li > span{
+    color:#283593;
+}
 .obramowanieTowaru{
     border: 1px solid #e0e0e0;
+}
+
+tr:first-child{
+    background-color:#efefef;
+}
+tr:hover td{
+    background-color:#efefef;
+}
+.btn {
+    margin:2px;
+}
+
+.form-horizontal .form-group{
+    margin-left:0px;
+}
+.caret{
+    display:none;
+}
+footer.page-footer{
+    left:0;
+    right:0;
+    bottom:0;
 }

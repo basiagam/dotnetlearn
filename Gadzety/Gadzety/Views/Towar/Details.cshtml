@@ -1,0 +1,58 @@
+﻿@model Gadzety.Models.Towar
+
+@{
+    ViewBag.Title = "Szczegóły towaru";
+}
+
+<h2>Szczegóły</h2>
+
+<div>
+    <h4>Towar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TowarPromocyjny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TowarPromocyjny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TowarPolecany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TowarPolecany)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.IdTowar }, new { @class = "btn indigo darken-4" }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

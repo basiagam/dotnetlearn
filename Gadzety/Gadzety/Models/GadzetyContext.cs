@@ -31,7 +31,6 @@ namespace Gadzety.Models
         }
 
         public DbSet<Kategoria> Kategorie { get; set; }
-        public DbSet<Towar_Kategoria> Towar_Kategoria { get; set; }
         public DbSet<Towar> Towary { get; set; }
         public DbSet<TowarStan> TowarStany { get; set; }
         public DbSet<TowarZdjecie> TowarZdjecia { get; set; }
