@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Gadzety.Models;
+using Gadzety.Models.ViewModels;
 
 namespace Gadzety.Controllers
 {
@@ -17,13 +18,57 @@ namespace Gadzety.Controllers
         public ActionResult PokazKategorie(int id)
         {
             ViewBag.NazwaKategorii = (db.Kategorie.Where(x => x.IdKategoria == id).FirstOrDefault().Nazwa);
-            return View(db.Towary.Where(x => x.IdKategoria == id).ToList());
+            ViewBag.Tytul = ViewBag.NazwaKategorii;
+
+            var zKategorii = (from t in db.Towary
+                              select new TowarViewModel
+                              {
+                                  Nazwa = t.Nazwa,
+                                  Opis = t.Opis,
+                                  TowarPromocyjny = t.TowarPromocyjny,
+                                  TowarPolecany = t.TowarPolecany,
+                                  IdKategoria = t.IdKategoria,
+                                  Kategoria = t.Kategoria,
+                                  Cena = t.Cena,
+                                  IdTowar = t.IdTowar,
+                                  Zdjecia = t.TowarZdjecia.Select(x => x.Url),
+                                  AktualnyStan = t.TowarStany.Sum(x => x.Stan)
+                              }).Where(x => x.IdKategoria == id).ToList();
+
+            return View(zKategorii);
         }
 
         // GET: Towar
         public ActionResult Index()
         {
             return View(db.Towary.ToList());
+        }
+
+        public ActionResult Szczegoly(int id)
+        {
+            ViewBag.Tytul = (db.Towary.Where(x => x.IdTowar == id).FirstOrDefault().Nazwa);
+
+            TowarViewModel towar = (from t in db.Towary
+                         where t.IdTowar == id
+                         select new TowarViewModel
+                         {
+                             Nazwa = t.Nazwa,
+                             Opis = t.Opis,
+                             TowarPromocyjny = t.TowarPromocyjny,
+                             TowarPolecany = t.TowarPolecany,
+                             IdKategoria = t.IdKategoria,
+                             Kategoria = t.Kategoria,
+                             Cena = t.Cena,
+                             IdTowar = t.IdTowar,
+                             Zdjecia = t.TowarZdjecia.Select(x => x.Url),
+                             AktualnyStan = t.TowarStany.Sum(x => x.Stan)
+                         }).FirstOrDefault();
+
+            if (towar == null)
+            {
+                return HttpNotFound();
+            }
+            return View(towar);
         }
 
         // GET: Towar/Details/5

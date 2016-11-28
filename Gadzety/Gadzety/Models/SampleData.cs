@@ -57,6 +57,16 @@ namespace Gadzety.Models
                 new TowarZdjecie { IdTowar = 8,Url="/Content/Images/image3.jpg" },
                 new TowarZdjecie { IdTowar = 9,Url="/Content/Images/image4.jpg" },
                 new TowarZdjecie { IdTowar = 10,Url="/Content/Images/image5.jpg" },
+                new TowarZdjecie { IdTowar = 1,Url="/Content/Images/image5.jpg" },
+                new TowarZdjecie { IdTowar = 2,Url="/Content/Images/image4.jpg" },
+                new TowarZdjecie { IdTowar = 3,Url="/Content/Images/image3.jpg" },
+                new TowarZdjecie { IdTowar = 4,Url="/Content/Images/image2.jpg" },
+                new TowarZdjecie { IdTowar = 5,Url="/Content/Images/image1.jpg" },
+                new TowarZdjecie { IdTowar = 6,Url="/Content/Images/image5.jpg" },
+                new TowarZdjecie { IdTowar = 7,Url="/Content/Images/image4.jpg" },
+                new TowarZdjecie { IdTowar = 8,Url="/Content/Images/image3.jpg" },
+                new TowarZdjecie { IdTowar = 9,Url="/Content/Images/image2.jpg" },
+                new TowarZdjecie { IdTowar = 10,Url="/Content/Images/image1.jpg" },
             };
 
             foreach (var z in towarZdjecia)

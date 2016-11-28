@@ -7,13 +7,13 @@ namespace Gadzety.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class key : IMigrationMetadata
+    public sealed partial class zmiana : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(key));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(zmiana));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611241547441_key"; }
+            get { return "201611282017274_zmiana"; }
         }
         
         string IMigrationMetadata.Source

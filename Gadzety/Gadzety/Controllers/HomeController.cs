@@ -1,4 +1,5 @@
 ﻿using Gadzety.Models;
+using Gadzety.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,28 @@ namespace Gadzety.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Tytul = "Strona główna";
             return View();
         }
 
         public ActionResult _Polecane()
         {
-            List<Towar> polecaneTowary = db.Towary.Where(x => x.TowarPolecany == true).Take(9).ToList();
+            var polecaneTowary = (from t in db.Towary
+                                  where t.TowarPolecany == true
+                                          select new TowarViewModel
+                                          {
+                                              Nazwa = t.Nazwa,
+                                              Opis = t.Opis,
+                                              TowarPromocyjny = t.TowarPromocyjny,
+                                              TowarPolecany = t.TowarPolecany,
+                                              IdKategoria = t.IdKategoria,
+                                              Kategoria = t.Kategoria,
+                                              Cena = t.Cena,
+                                              IdTowar = t.IdTowar,
+                                              Zdjecia = t.TowarZdjecia.Select(x => x.Url),
+                                              AktualnyStan = t.TowarStany.Sum(x => x.Stan)
+                                          }).Take(10).ToList();
+ 
             return PartialView(polecaneTowary);
         }
 
