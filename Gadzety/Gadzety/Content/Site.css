@@ -72,3 +72,14 @@ footer.page-footer{
     right:0;
     bottom:0;
 }
+
+/*zmniejszenie navbara*/
+@media only screen and (min-width: 601px) {
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 36px;
+    line-height: 36px;
+  }
+  .navbar-fixed {
+    height: 36px;
+  }
+}

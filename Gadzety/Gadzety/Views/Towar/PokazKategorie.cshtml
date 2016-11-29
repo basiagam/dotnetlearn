@@ -1,5 +1,5 @@
-﻿@model List<Gadzety.Models.ViewModels.TowarViewModel>
-
+﻿@model PagedList.IPagedList<Gadzety.Models.ViewModels.TowarViewModel>
+@using PagedList.Mvc;
 <div class="col m3 l2">
     <!-- kategorie-->
     @Html.Action("_Kategorie", "Home")
@@ -14,6 +14,15 @@
 </div>
 <div class="col m9 l10">
     <h3>@ViewBag.NazwaKategorii</h3>
+    @using (Html.BeginForm("Index","Sklep"))
+    {
+    <center>
+        sortuj według 
+        <span style="margin-left:5px;">
+        @Html.DropDownList("sortowanie", (List<SelectListItem>)ViewBag.SortowanieLista, new { onchange ="this.form.submit()" })
+        </span>
+    </center>
+    }
     @foreach (var t in Model)
     {
         <div class="col s12 col m6 l4 obramowanieTowaru" style="margin-top: 25px; padding:5px; ">
@@ -31,4 +40,13 @@
             </div>
         </div>
     }
+</div>
+<div class="row" style="margin-top:20px">
+    <div class="col s12">
+        <center>
+            <div>
+                @Html.PagedListPager(Model,page=> Url.Action("PokazKategorie",new { page = page, sortowanie=ViewBag.Sortowanie }))
+            </div>
+        </center>
+    </div>
 </div>
