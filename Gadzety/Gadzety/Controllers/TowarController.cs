@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Gadzety.Models;
 using Gadzety.Models.ViewModels;
+using PagedList;
 
 namespace Gadzety.Controllers
 {
@@ -15,8 +16,10 @@ namespace Gadzety.Controllers
     {
         private GadzetyContext db = new GadzetyContext();
 
-        public ActionResult PokazKategorie(int id)
+        public ActionResult PokazKategorie(int id, int page=1)
         {
+            int pageSize = 9;
+
             ViewBag.NazwaKategorii = (db.Kategorie.Where(x => x.IdKategoria == id).FirstOrDefault().Nazwa);
             ViewBag.Tytul = ViewBag.NazwaKategorii;
 
@@ -35,7 +38,7 @@ namespace Gadzety.Controllers
                                   AktualnyStan = t.TowarStany.Sum(x => x.Stan)
                               }).Where(x => x.IdKategoria == id).ToList();
 
-            return View(zKategorii);
+            return View(zKategorii.ToPagedList(page,pageSize));
         }
 
         // GET: Towar

@@ -1,5 +1,5 @@
-﻿@model List<Gadzety.Models.ViewModels.TowarViewModel>
-
+﻿@model PagedList.IPagedList<Gadzety.Models.ViewModels.TowarViewModel>
+@using PagedList.Mvc;
 <div class="col m3 l2">
     <!-- kategorie-->
     @Html.Action("_Kategorie", "Home")
@@ -31,4 +31,13 @@
             </div>
         </div>
     }
+</div>
+<div class="row" style="margin-top:20px">
+    <div class="col s12">
+        <center>
+            <div>
+                @Html.PagedListPager(Model,page=> Url.Action("PokazKategorie",new { page = page }))
+            </div>
+        </center>
+    </div>
 </div>
