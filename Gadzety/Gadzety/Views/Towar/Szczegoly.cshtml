@@ -14,3 +14,69 @@
 </div>
 <h3>Szczegoly</h3>
 
+<div class="col m9 l10">
+    <div class="col s12 l2">
+        <button class="indigo darken-3 btn" onclick="goBack()">Powrót</button>
+        <ul style="margin-top:10px;">
+            @foreach (var zdjecie in Model.Zdjecia)
+            {
+                <li style="width:85px; height:85px;" class="obramowanieTowaru zmienGlownyObrazek">
+                    <center>
+                        <a class="zmienGlownyObrazek"><img src="@zdjecie" style="width:80px; height:80px;" /></a>
+                    </center>  
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col s12 l6">
+        <center>
+            <div>
+                <img id="glownyObrazek" src="@Model.Zdjecia.First()" style="width:90%" />
+            </div>
+        </center>
+    </div>
+    <div class="col s12 l4">
+        <div style="text-align: center;">
+            <span><h3 style="color:indigo">@Model.Cena PLN / sztuka </h3></span><br />
+            <span>@Model.Nazwa</span><br /><br />
+            <span>@Html.Raw(Model.Opis)</span><br /><br />
+        </div>
+        <div class="margin-top:10px" style="text-align: center;">
+            <table>
+                <tr style="background-color:white">
+                    <td>
+                        Dostępna ilość:
+                    </td>
+                    <td>
+                        @Model.AktualnyStan<br />
+                    </td>
+                </tr>
+                <tr style="background-color:white">
+                    <td>
+                        Ilość:
+                    </td>
+                    <td>
+                        <input class="form-control" name="iloscTowaru" id="iloscTowaru" min="0" type="number" value="0" style="width:30px; text-align: center;" />
+                    </td>
+                </tr>
+            </table>
+              
+             
+
+        </div>
+    </div>
+</div>
+    
+<script>
+        function goBack() {
+            window.history.back(1);
+        }
+
+        $(".zmienGlownyObrazek").on("click touchend", function () {
+            var adresObrazka = $(this).find("img").prop('src');
+            $("#glownyObrazek").prop('src', adresObrazka);
+        });
+</script>
+
+    
+

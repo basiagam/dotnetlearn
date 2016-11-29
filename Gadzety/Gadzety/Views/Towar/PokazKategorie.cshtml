@@ -1,6 +1,6 @@
 ﻿@model List<Gadzety.Models.ViewModels.TowarViewModel>
 
-<div class="col m2">
+<div class="col m3 l2">
     <!-- kategorie-->
     @Html.Action("_Kategorie", "Home")
     <!--boczki-->
@@ -12,7 +12,7 @@
     <div id="blok">Nowości</div>
     <div id="blok">Miejsce na banner PayU</div>
 </div>
-<div class="col m10">
+<div class="col m9 l10">
     <h3>@ViewBag.NazwaKategorii</h3>
     @foreach (var t in Model)
     {
