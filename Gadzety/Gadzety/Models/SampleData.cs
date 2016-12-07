@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+
 
 namespace Gadzety.Models
 {
@@ -10,6 +13,8 @@ namespace Gadzety.Models
     {
         protected override void Seed(GadzetyContext context)
         {
+            SeedRoles(context);
+            SeedUsers(context);
 
             var Kategorie = new List<Kategoria>
             {
@@ -91,6 +96,51 @@ namespace Gadzety.Models
             foreach (var s in towarStany)
             {
                 context.TowarStany.Add(s);
+            }
+        }
+
+        protected void SeedRoles(GadzetyContext context)
+        {
+            var roleManager = new RoleManager<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>(new RoleStore<IdentityRole>());
+            if (!roleManager.RoleExists("Admin"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Admin";
+                roleManager.Create(role);
+            }
+            if (!roleManager.RoleExists("Pracownik"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Pracownik";
+                roleManager.Create(role);
+            }
+            if (!roleManager.RoleExists("Klient"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Klient";
+                roleManager.Create(role);
+            }
+        }
+
+        protected void SeedUsers(GadzetyContext context)
+        {
+            var store = new UserStore<Uzytkownik>(context);
+            var manager = new UserManager<Uzytkownik>(store);
+
+            if (!context.Users.Any(u => u.UserName == "Artur"))
+            {
+                var user = new Uzytkownik { UserName = "artur@gadzety.pl" };
+                var adminresult = manager.Create(user, "1234Abc,");
+                if (adminresult.Succeeded)
+                    manager.AddToRole(user.Id, "Admin");
+            }
+
+            if (!context.Users.Any(u => u.UserName == "Marcin"))
+            {
+                var user = new Uzytkownik { UserName = "marcin@gmail.com" };
+                var adminresult = manager.Create(user, "1234Abc,");
+                if (adminresult.Succeeded)
+                    manager.AddToRole(user.Id, "Klient");
             }
         }
     }
