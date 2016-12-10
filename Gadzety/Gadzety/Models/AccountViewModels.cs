@@ -64,21 +64,23 @@ namespace Gadzety.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Adres e-mail jest wymagany.")]
+        [EmailAddress(ErrorMessage = "Zły format adresu e-mail.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Hasło jest wymagane.")]
+        [StringLength(100, ErrorMessage = "Wprowadź {0} (min. {2} znaków)", MinimumLength = 6)]
+        [DataType(DataType.Password, ErrorMessage = "Zły format")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [DataType(DataType.Password, ErrorMessage = "Zły format")]
+        [Display(Name = "Powtórz hasło")]
+        [Compare("Password", ErrorMessage = "Hasła muszą się zgadzać.")]
         public string ConfirmPassword { get; set; }
+
+        
     }
 
     public class ResetPasswordViewModel

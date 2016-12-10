@@ -67,7 +67,7 @@ tr:hover td{
 .caret{
     display:none;
 }
-footer.page-footer{
+.page-footer{
     left:0;
     right:0;
     bottom:0;
@@ -82,4 +82,30 @@ footer.page-footer{
   .navbar-fixed {
     height: 36px;
   }
+}
+
+.kafelek
+{
+    min-height: 150px;
+    text-align: center;
+    background: linear-gradient(rgb(243, 238, 238) 0px, rgb(195, 195, 195)
+    100%);
+    display: block;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 20px;
+}
+.kafelek:hover, .kafelek:focus
+{
+    background: linear-gradient(rgb(243, 238, 238) 0px, rgb(195, 195, 195) 100%) !important;
+}
+.kafeletekText
+{
+    font-size: 32px;
+    margin-bottom: 15px;
+    margin-top: 35px;
+}
+.kafelekLink:hover, .kafelekLink:focus, .kafelekLink:active
+{
+    color: #064382 !important;
 }

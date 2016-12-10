@@ -20,6 +20,10 @@
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li>@Html.ActionLink("Logowanie", "Login", "Account")</li>
                     <li>@Html.ActionLink("Rejestracja", "Register", "Account")</li>
+                    @if(User.IsInRole("Admin")
+                    {
+                        <li>@Html.ActionLink("Panel", "Index", "Panel")</li>
+                    }  
                 </ul>         
             </div>
             <div id="szukajka">

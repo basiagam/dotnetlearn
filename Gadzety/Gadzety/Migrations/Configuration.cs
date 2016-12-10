@@ -9,7 +9,7 @@ namespace Gadzety.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "Gadzety.Models.GadzetyContext";
         }
 

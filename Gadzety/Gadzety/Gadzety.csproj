@@ -176,13 +176,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\TowarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611282017274_zmiana.cs" />
-    <Compile Include="Migrations\201611282017274_zmiana.Designer.cs">
-      <DependentUpon>201611282017274_zmiana.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -282,6 +279,7 @@
     <Content Include="Views\Towar\Index.cshtml" />
     <Content Include="Views\Towar\PokazKategorie.cshtml" />
     <Content Include="Views\Towar\Szczegoly.cshtml" />
+    <Content Include="Views\Panel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -292,11 +290,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611282017274_zmiana.resx">
-      <DependentUpon>201611282017274_zmiana.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

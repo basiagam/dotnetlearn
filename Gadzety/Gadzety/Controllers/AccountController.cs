@@ -155,6 +155,19 @@ namespace Gadzety.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var resultRole = await UserManager.AddToRoleAsync(user.Id, "Klient");
+                    if (resultRole.Succeeded)
+                    {
+                        using (GadzetyContext db = new GadzetyContext())
+                        {
+                            Uzytkownik uzytkownik = new Uzytkownik
+                            {
+                                Email = model.Email
+                            };
+                            db.Users.Add(uzytkownik);
+                            db.SaveChanges();
+                        }
+                    }
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
