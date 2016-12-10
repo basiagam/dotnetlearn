@@ -16,7 +16,7 @@ namespace Gadzety.Controllers
     {
         private GadzetyContext db = new GadzetyContext();
 
-        public ActionResult PokazKategorie(int id, int page=1, int sortowanie = 1)
+        public ActionResult PokazKategorie(int id, int page=1)
         {
             int pageSize = 9;
 
@@ -37,25 +37,6 @@ namespace Gadzety.Controllers
                                   Zdjecia = t.TowarZdjecia.Select(x => x.Url),
                                   AktualnyStan = t.TowarStany.Sum(x => x.Stan)
                               }).Where(x => x.IdKategoria == id).ToList();
-
-            List<SelectListItem> sortowanieLista = new List<SelectListItem>
-            {
-                new SelectListItem {Text = "Ceny rosnąco", Value = "1", Selected =
-                (sortowanie == 3? true : false) },
-                new SelectListItem {Text = "Ceny malejąco", Value = "2", Selected =
-                (sortowanie == 4? true : false) },
-            };
-            ViewBag.Sortowanie = sortowanie;
-            ViewBag.SortowanieLista = sortowanieLista;
-            switch (sortowanie)
-            {
-                case 1:
-                    zKategorii = zKategorii.OrderBy(x => x.Cena).ToList();
-                    break;
-                case 2:
-                    zKategorii = zKategorii.OrderByDescending(x => x.Cena).ToList();
-                    break;
-            }
 
             return View(zKategorii.ToPagedList(page,pageSize));
         }
