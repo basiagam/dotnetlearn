@@ -8,7 +8,43 @@
         Title="Ratuj ludzi" Height="675" Width="1244">
     <Window.Resources>
         <ControlTemplate x:Key="EnemyTemplate" TargetType="{x:Type ContentControl}">
-            <Ellipse Fill="#FFE21111" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+            <Grid RenderTransformOrigin="0.5,0.5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="38*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="17*"/>
+                </Grid.RowDefinitions>
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-10"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Ellipse Fill="Gray" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="75" Grid.RowSpan="3" Margin="29,0,0,0"/>
+                <Ellipse Fill="Black" HorizontalAlignment="Left" Height="35" Stroke="Black" VerticalAlignment="Top" Width="25" RenderTransformOrigin="0.5,0.5" Margin="38,19,0,0" Grid.RowSpan="2">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="10"/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse Fill="Black" HorizontalAlignment="Left" Height="35" Stroke="Black" VerticalAlignment="Top" Width="25" RenderTransformOrigin="0.5,0.5" Margin="71,18,0,0" Grid.RowSpan="2">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-10"/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Grid>
+
         </ControlTemplate>
     </Window.Resources>
     <Grid x:Name="grid">
@@ -21,7 +57,7 @@
             <ContentControl Content="ContentControl" Template="{DynamicResource EnemyTemplate}" RenderTransformOrigin="0.389,0.332" Height="100" Foreground="#FFE21111"/>
         </StackPanel>
         <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="20" Margin="401,556,0,0" VerticalAlignment="Top" Width="561" MinHeight="20"/>
-        <Canvas x:Name="playArea" Margin="-10,10,10,-11" Panel.ZIndex="1">
+        <Canvas x:Name="playArea" Margin="-10,10,10,139" Panel.ZIndex="1">
             <StackPanel x:Name="human" Orientation="Vertical" Margin="10,0,0,0">
                 <Ellipse  Height="10" Stroke="Black" Width="10"/>
                 <Rectangle Height="25" Stroke="Black"/>
