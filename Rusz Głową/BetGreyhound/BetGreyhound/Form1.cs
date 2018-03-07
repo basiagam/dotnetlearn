@@ -12,6 +12,7 @@ namespace BetGreyhound
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
@@ -24,9 +25,48 @@ namespace BetGreyhound
             {
                 GuysArray[i].UpdateLabels();
             }
-
+            
+        }
+        public void setTextForLabel(string name)
+        {
+            nameLabel.Text = name;
         }
 
-        
+        private void radioButton1_Click(object sender, EventArgs e)
+        {
+            setTextForLabel(GuysArray[0].Name);
+        }
+
+        private void radioButton2_Click(object sender, EventArgs e)
+        {
+            setTextForLabel(GuysArray[1].Name);
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            setTextForLabel(GuysArray[2].Name);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //sprawdzamy ktory z nich obstawil i tworzymy bet
+            if (radioButton1.Checked)
+            {
+             GuysArray[0].PlaceBet((int)numericUpDown1.Value, (int)numericUpDown2.Value);
+             GuysArray[0].UpdateLabels();
+
+            }
+            if (radioButton2.Checked)
+            {
+                GuysArray[1].PlaceBet((int)numericUpDown1.Value, (int)numericUpDown2.Value);
+                GuysArray[1].UpdateLabels();
+            }
+            if (radioButton3.Checked)
+            {
+                GuysArray[2].PlaceBet((int)numericUpDown1.Value, (int)numericUpDown2.Value);
+                GuysArray[2].UpdateLabels();
+            }
+
+        }
     }
 }

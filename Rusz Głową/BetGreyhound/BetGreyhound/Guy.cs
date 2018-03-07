@@ -19,7 +19,6 @@ namespace BetGreyhound
 
         public void UpdateLabels()
         {
-            //TODO
             //ustaw moje pole tekstowe na opis zakładu a napis obok pola wyboru tak
             //aby pokazywał np. "Janek ma 43zł"
             if (MyBet==null)
@@ -28,7 +27,9 @@ namespace BetGreyhound
                 MyLabel.Text = Name + " stawia "+MyBet.Amount+" zł na charta nr "+MyBet.Dog;//TODO
 
             MyButton.Text = Name + " ma " + Cash + "zł";
+
         }
+
 
         public void ClearBet()
         {
@@ -39,7 +40,12 @@ namespace BetGreyhound
         {
             //ustal nowy zakład i przechowaj go w polu MyBet
             //zwróć true, jeżeli facet ma wystarczającą illość pieniędzy aby obstawić
-            return true;
+            if (Cash > amount && MyBet==null)
+            {
+                MyBet = new Bet() { Amount = amount, Dog = DogToWin, Bettor = this };
+                return true;
+            }
+            return false; 
         }
 
         public void Collect(int Winner)
