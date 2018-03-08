@@ -29,7 +29,8 @@ namespace BetGreyhound
 
         public void TakeStartingPosition()
         {
-            //wyzeruj położenie i ustaw na linii startowej
+            Location = 0;
+            MyPictureBox.Left = 0;
         }
 
     }
