@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,13 @@ namespace BetGreyhound
 
         public bool Run()
         {
+            MyPictureBox.Left+=MyRandom.Next(1, 4);
+            Location = MyPictureBox.Right;
+            if (Location > 534) return true;
+            else return false;
             //przesu się do przodu losowo o 1,2,3 lub 4 punkty
             //zaktualizuj położenie PictureBox na formularzu
             //zwróć true jeśli wygrałem wyścig
-            return true;
         }
 
         public void TakeStartingPosition()

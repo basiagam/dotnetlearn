@@ -12,7 +12,7 @@ namespace BetGreyhound
 {
     public partial class Form1 : Form
     {
-        
+        public Random random = new Random();
         public Form1()
         {
             InitializeComponent();
@@ -24,8 +24,43 @@ namespace BetGreyhound
             for (int i = 0; i <= 2; i++)
             {
                 GuysArray[i].UpdateLabels();
-            }
-            
+            };
+
+            //tablica Greyhounds
+            greyhoundArray[0] = new Greyhound()
+            {
+                MyPictureBox = pictureBox1,
+                StartingPosition = racetrack.Left,
+                RacetrackLegth = racetrack.Width - pictureBox1.Width,
+                MyRandom = random,
+                Location = 0
+            };
+            greyhoundArray[1] = new Greyhound()
+            {
+                MyPictureBox = pictureBox2,
+                StartingPosition = racetrack.Left,
+                RacetrackLegth = racetrack.Width - pictureBox2.Width,
+                MyRandom = random,
+                Location = 0
+            };
+            greyhoundArray[2] = new Greyhound()
+            {
+                MyPictureBox = pictureBox3,
+                StartingPosition = racetrack.Left,
+                RacetrackLegth = racetrack.Width - pictureBox3.Width,
+                MyRandom = random,
+                Location = 0
+            };
+            greyhoundArray[3] = new Greyhound()
+            {
+                MyPictureBox = pictureBox4,
+                StartingPosition = racetrack.Left,
+                RacetrackLegth = racetrack.Width - pictureBox4.Width,
+                MyRandom = random,
+                Location = 0
+            };
+
+
         }
         public void setTextForLabel(string name)
         {
@@ -67,6 +102,28 @@ namespace BetGreyhound
                 GuysArray[2].UpdateLabels();
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            button1.Enabled = false;
+            button2.Enabled = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            for(int i = 0; i <= 3; i++)
+            {
+                if (greyhoundArray[i].Run()==true)
+                {
+                    timer1.Stop();
+                    button1.Enabled = true;
+                    button2.Enabled = true;
+                    MessageBox.Show("Wygrał pies nr " + (i+1));
+                    break;
+                }
+            }
         }
     }
 }

@@ -12,7 +12,11 @@
             //postawił i na którego psa ("Janek postawił 8zł na psa numer4"
             //Jeżeli ilość jest równa zero, zakład nie został zawarty
             //("Janek nie zawarł zakładu")
-            return "a";
+            if (Bettor != null)
+            {
+                return Bettor.Name + " stawia " + Amount + " zł na charta nr " + Dog;
+            }
+            else return Bettor.Name + " nie zawarł jeszcze zakładu";
         }
 
         public int payOut(int Winner)
