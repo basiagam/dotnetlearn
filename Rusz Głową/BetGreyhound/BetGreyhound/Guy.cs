@@ -21,28 +21,23 @@ namespace BetGreyhound
         {
             //ustaw moje pole tekstowe na opis zakładu a napis obok pola wyboru tak
             //aby pokazywał np. "Janek ma 43zł"
-            if (MyBet==null)
-                MyLabel.Text = Name + " nie zawarł jeszcze zakładu";
-            else
-                MyLabel.Text = Name + " stawia "+MyBet.Amount+" zł na charta nr "+MyBet.Dog;//TODO
-
             MyButton.Text = Name + " ma " + Cash + "zł";
-
         }
 
 
         public void ClearBet()
         {
-            //wyczyść mój zakład aby był równy 0
+            MyLabel.Text = Name + " nie zawarł zakładu";
         }
 
         public bool PlaceBet(int amount, int DogToWin)
         {
             //ustal nowy zakład i przechowaj go w polu MyBet
             //zwróć true, jeżeli facet ma wystarczającą illość pieniędzy aby obstawić
-            if (Cash > amount && MyBet==null)
+            if (Cash >= amount && MyBet==null)
             {
                 MyBet = new Bet() { Amount = amount, Dog = DogToWin, Bettor = this };
+                MyLabel.Text = Name + " stawia " + MyBet.Amount + " zł na charta nr " + MyBet.Dog;
                 return true;
             }
             return false; 
@@ -50,11 +45,12 @@ namespace BetGreyhound
 
         public void Collect(int Winner)
         {
-            if (MyBet != null)
+            if (MyBet != null) //jesli zawarto zaklad
             {
-                int amount = MyBet.payOut(Winner);
+                int amount = MyBet.payOut(Winner); //oblicz pule pieniedzy (+ czy -)
                 Cash += amount;
-                MyBet = null;
+                MyBet = null; //wyzeruj zaklad(nowe rozdanie)
+                ClearBet();
                 UpdateLabels();
             }
         }

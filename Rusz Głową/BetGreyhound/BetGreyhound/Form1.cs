@@ -88,18 +88,14 @@ namespace BetGreyhound
             if (radioButton1.Checked)
             {
              GuysArray[0].PlaceBet((int)numericUpDown1.Value, (int)numericUpDown2.Value);
-             GuysArray[0].UpdateLabels();
-
             }
             if (radioButton2.Checked)
             {
-                GuysArray[1].PlaceBet((int)numericUpDown1.Value, (int)numericUpDown2.Value);
-                GuysArray[1].UpdateLabels();
+                GuysArray[1].PlaceBet((int)numericUpDown1.Value, (int)numericUpDown2.Value);;
             }
             if (radioButton3.Checked)
             {
                 GuysArray[2].PlaceBet((int)numericUpDown1.Value, (int)numericUpDown2.Value);
-                GuysArray[2].UpdateLabels();
             }
 
         }
