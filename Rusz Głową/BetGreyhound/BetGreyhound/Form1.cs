@@ -121,8 +121,12 @@ namespace BetGreyhound
                     button1.Enabled = true;
                     button2.Enabled = true;
                     MessageBox.Show("Wygrał pies nr " + (i+1));
+                    for (int k = 0; k <=2; k++)
+                    {
+                        GuysArray[k].Collect(i+1); 
+                    }
                     for (int j = 0; j <= 3; j++)
-                        greyhoundArray[j].TakeStartingPosition();
+                        greyhoundArray[j].TakeStartingPosition(); 
                     break;
                 }
             }

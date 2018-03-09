@@ -21,10 +21,10 @@
 
         public int payOut(int Winner)
         {
-            //parametrem jest zwycięzca wyścigu. Jeżeli pies wygrał,
-            //zwróć wartość postawioną. W przeciwnym razie zwróć wartość 
-            //postawioną ze znakiem minus
-            return 1;
+            if (Dog == Winner)
+                return Amount;
+            else
+                return -Amount;
         }
     }
 }

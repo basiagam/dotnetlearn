@@ -50,7 +50,13 @@ namespace BetGreyhound
 
         public void Collect(int Winner)
         {
-            //Poproś o wypłatę i zuaktualizuj ektykiety
+            if (MyBet != null)
+            {
+                int amount = MyBet.payOut(Winner);
+                Cash += amount;
+                MyBet = null;
+                UpdateLabels();
+            }
         }
 
     }
